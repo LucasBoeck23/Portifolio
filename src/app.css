@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,400;0,700;1,700&family=Montserrat:wght@300&display=swap');
+
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+	background: #000;
+	overflow: hidden;
+}
+
+/* Responsive base scale — shrinks layout on smaller viewports */
+:root {
+	--ui-scale: 1;
+}
+
+@media (max-width: 1200px) {
+	:root { --ui-scale: 0.85; }
+}
+
+@media (max-width: 900px) {
+	:root { --ui-scale: 0.7; }
+}
+
+@media (max-width: 600px) {
+	:root { --ui-scale: 0.5; }
+}

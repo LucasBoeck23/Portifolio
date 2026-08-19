@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/png" href="%sveltekit.assets%/Persona_3_Reload_logo.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,400;0,700;1,700&family=Montserrat:wght@300&display=swap"
+			rel="stylesheet"
+		/>
+		%sveltekit.head%
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div id="splash" data-splash-skip="%splash-skip%">
+			<div class="splash-bg"></div>
+			<div class="splash-logo">
+				<img src="%sveltekit.assets%/Persona_3_Reload_logo.png" alt="" class="splash-img" />
+			</div>
+		</div>
+
+		<div style="display: contents">%sveltekit.body%</div>
+
+		<style>
+			#splash {
+				position: fixed;
+				inset: 0;
+				z-index: 99999;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				animation: splash-fadeout 0.6s ease forwards;
+				animation-delay: 1.8s;
+				pointer-events: none;
+			}
+
+			#splash[data-splash-skip="true"] {
+				display: none;
+			}
+
+			.splash-bg {
+				position: absolute;
+				inset: 0;
+				background: #0a0a12;
+			}
+
+			.splash-logo {
+				position: relative;
+				z-index: 1;
+				animation: splash-pulse 1.5s ease-in-out;
+			}
+
+			.splash-img {
+				width: 180px;
+				height: auto;
+				opacity: 0;
+				animation: splash-logo-in 0.8s ease forwards;
+				animation-delay: 0.2s;
+			}
+
+			@keyframes splash-logo-in {
+				from {
+					opacity: 0;
+					transform: scale(0.8);
+				}
+				to {
+					opacity: 1;
+					transform: scale(1);
+				}
+			}
+
+			@keyframes splash-fadeout {
+				from {
+					opacity: 1;
+				}
+				to {
+					opacity: 0;
+					visibility: hidden;
+				}
+			}
+
+			@keyframes splash-pulse {
+				0%, 100% {
+					transform: scale(1);
+				}
+				50% {
+					transform: scale(1.05);
+				}
+			}
+		</style>
+	</body>
+</html>
