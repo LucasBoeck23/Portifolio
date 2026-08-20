@@ -1,6 +1,7 @@
 <script lang="ts">
   import ResumeCards from '$lib/components/ResumeCards.svelte';
   import ResumeDetail from '$lib/components/ResumeDetail.svelte';
+  import BackButton from '$lib/components/BackButton.svelte';
   import { RESUME_CATEGORIES } from '$lib/data/resume-items';
   import { useKeyboardNav } from '$lib/utils/use-keyboard-nav.svelte';
 
@@ -11,33 +12,18 @@
     onBack: () => history.back(),
   });
 
-  // Circle reveal animation on mount
   $effect(() => {
     const timer = setTimeout(() => (circleRevealed = true), 100);
     return () => clearTimeout(timer);
-  });
-
-  $effect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowLeft') {
-        e.preventDefault();
-        history.back();
-        return;
-      }
-      if (nav.handleKey(e.key)) {
-        e.preventDefault();
-      }
-    };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
   });
 </script>
 
 <div class="resume-page" class:circle-revealed={circleRevealed}>
   <div class="circle-bg"></div>
-  <ResumeCards active={nav.active} mounted={nav.mounted} />
-  <ResumeDetail category={RESUME_CATEGORIES[nav.active]} />
+  <ResumeCards active={nav.active} mounted={nav.mounted} onhover={(i) => (nav.active = i)} />
+  <ResumeDetail category={RESUME_CATEGORIES[nav.active] ?? RESUME_CATEGORIES[0]} />
 </div>
+<BackButton />
 
 <style>
   .resume-page {

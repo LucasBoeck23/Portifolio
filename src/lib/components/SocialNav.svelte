@@ -5,9 +5,7 @@
 <div class="social-nav">
   <div class="social-nav-arrows">
     <span class="arrow left">◄</span>
-    <span class="nav-btn">LB</span>
     <span class="nav-label">{platformLabel}</span>
-    <span class="nav-btn">RB</span>
     <span class="arrow right">►</span>
   </div>
 </div>

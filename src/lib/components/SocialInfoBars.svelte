@@ -2,19 +2,24 @@
   import type { SocialInfoBar } from '$lib/data/social-items';
   import newsign from '$assets/images/newsign.png';
 
-  let { infoBars = [], activeIndex = 0, focused = false }: {
+  let { infoBars = [], activeIndex = 0, focused = false, onhover, onleave, onclick: onitemclick }: {
     infoBars: SocialInfoBar[];
     activeIndex: number;
     focused: boolean;
+    onhover?: (index: number) => void;
+    onleave?: () => void;
+    onclick?: (index: number) => void;
   } = $props();
 </script>
 
-<div class="info-bars-container">
+<div class="info-bars-container" onmouseleave={() => onleave?.()}>
   {#each infoBars as bar, i}
     <div
       class="info-bar-wrap"
-      class:selected={activeIndex === i && focused}
+      class:selected={activeIndex === i}
       style:animation-delay="{i * 50}ms"
+      onmouseenter={() => onhover?.(i)}
+      onclick={() => onitemclick?.(i)}
     >
       {#if bar.isNew}
         <img class="info-bar-new" src={newsign} alt="NEW" />
@@ -44,6 +49,7 @@
     flex-direction: column;
     gap: 6px;
     z-index: 50;
+    overflow: visible;
     transform: scale(var(--ui-scale, 1));
     transform-origin: top right;
   }
@@ -56,14 +62,12 @@
     cursor: pointer;
     padding: 0;
     animation: infobar-in 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
-    clip-path: polygon(0 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
   }
 
   .info-bar-wrap.selected {
     background: #111;
     padding: 1.5px;
     border-radius: 8px;
-    clip-path: none;
   }
 
   .info-bar {
@@ -73,7 +77,7 @@
     background: rgba(20, 20, 30, 0.85);
     display: flex;
     align-items: center;
-    overflow: hidden;
+    overflow: visible;
     clip-path: polygon(0 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
   }
 

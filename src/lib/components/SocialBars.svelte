@@ -2,10 +2,16 @@
   import { SOCIAL_PLATFORMS } from '$lib/data/social-items';
   import BarBase from './BarBase.svelte';
 
-  let { active = 0, mounted = false }: { active: number; mounted: boolean } = $props();
+  let { active = 0, mounted = false, onhover, onleave, onclick }: {
+    active: number;
+    mounted: boolean;
+    onhover?: (index: number) => void;
+    onleave?: () => void;
+    onclick?: (index: number) => void;
+  } = $props();
 </script>
 
-<BarBase items={SOCIAL_PLATFORMS} {active} {mounted}>
+<BarBase items={SOCIAL_PLATFORMS} {active} {mounted} {onhover} {onleave} onclick={onclick}>
   {#snippet content({ item })}
     <div class="sc-main">
       <div class="sc-main-top">

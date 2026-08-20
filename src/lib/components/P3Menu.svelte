@@ -1,9 +1,8 @@
 <script lang="ts">
   import { goto } from '$app/navigation';
   import { MENU_ITEMS } from '$lib/data/menu-items';
-  import { clampIndex } from '$lib/utils/keyboard';
 
-  let active = $state(0);
+  let active = $state(-1);
   let mounted = $state(false);
 
   function getOpacity(index: number): number {
@@ -34,23 +33,6 @@
   $effect(() => {
     const timer = setTimeout(() => (mounted = true), 60);
     return () => clearTimeout(timer);
-  });
-
-  $effect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowUp') {
-        e.preventDefault();
-        active = clampIndex(active, 'up', MENU_ITEMS.length - 1);
-      } else if (e.key === 'ArrowDown') {
-        e.preventDefault();
-        active = clampIndex(active, 'down', MENU_ITEMS.length - 1);
-      } else if (e.key === 'Enter') {
-        e.preventDefault();
-        navigateTo(MENU_ITEMS[active]);
-      }
-    };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
   });
 </script>
 

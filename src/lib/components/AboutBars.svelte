@@ -2,10 +2,16 @@
   import { ABOUT_ITEMS } from '$lib/data/about-items';
   import BarBase from './BarBase.svelte';
 
-  let { active = 0, mounted = false }: { active: number; mounted: boolean } = $props();
+  let { active = 0, mounted = false, onhover, onleave, onclick }: {
+    active: number;
+    mounted: boolean;
+    onhover?: (index: number) => void;
+    onleave?: () => void;
+    onclick?: (index: number) => void;
+  } = $props();
 </script>
 
-<BarBase items={ABOUT_ITEMS} {active} {mounted}>
+<BarBase items={ABOUT_ITEMS} {active} {mounted} {onhover} {onleave} onclick={onclick}>
   {#snippet content({ item })}
     <div class="sc-main">
       <div class="sc-main-top">

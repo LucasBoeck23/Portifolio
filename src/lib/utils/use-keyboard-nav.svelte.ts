@@ -1,8 +1,10 @@
+import { clampIndex } from './keyboard';
+
 export function useKeyboardNav(options: {
 	itemCount: number;
 	onBack?: () => void;
 }) {
-	let active = $state(0);
+	let active = $state(-1);
 	let mounted = $state(false);
 
 	$effect(() => {
@@ -11,12 +13,8 @@ export function useKeyboardNav(options: {
 	});
 
 	function handleKey(key: string): boolean {
-		if (key === 'ArrowUp') {
-			active = Math.max(0, active - 1);
-			return true;
-		}
-		if (key === 'ArrowDown') {
-			active = Math.min(options.itemCount - 1, active + 1);
+		if (key === 'ArrowUp' || key === 'ArrowDown') {
+			active = clampIndex(active, key === 'ArrowUp' ? 'up' : 'down', options.itemCount - 1);
 			return true;
 		}
 		if ((key === 'Escape' || key === 'Backspace') && options.onBack) {

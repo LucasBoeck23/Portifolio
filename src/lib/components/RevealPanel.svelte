@@ -1,11 +1,11 @@
 <script lang="ts">
   import type { AboutItem } from '$lib/data/about-items';
 
-  let { item, visible = false }: { item: AboutItem; visible: boolean } = $props();
+  let { item, visible = false, onclose }: { item: AboutItem; visible: boolean; onclose?: () => void } = $props();
 </script>
 
 {#if visible}
-  <div class="reveal-overlay">
+  <div class="reveal-overlay" onclick={() => onclose?.()}>
     <!-- Dimming overlay -->
     <div class="reveal-dim"></div>
 
@@ -40,7 +40,8 @@
     position: absolute;
     inset: 0;
     z-index: 12;
-    pointer-events: none;
+    pointer-events: all;
+    cursor: pointer;
     transform: scale(var(--ui-scale, 1));
     transform-origin: center center;
   }

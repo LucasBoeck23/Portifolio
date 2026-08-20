@@ -1,12 +1,17 @@
 <script lang="ts">
   import { RESUME_CATEGORIES } from '$lib/data/resume-items';
 
-  let { active = 0, mounted = false }: { active: number; mounted: boolean } = $props();
+  let { active = 0, mounted = false, onhover, onleave }: {
+    active: number;
+    mounted: boolean;
+    onhover?: (index: number) => void;
+    onleave?: () => void;
+  } = $props();
 
   const ROMAN_NUMERALS = ['I', 'II', 'III', 'IV'];
 </script>
 
-<div class="resume-stack">
+<div class="resume-stack" onmouseleave={() => onleave?.()}>
   <div class="resume-list-tag" class:mounted>LIST</div>
 
   {#each RESUME_CATEGORIES as category, index}
@@ -15,6 +20,7 @@
       class:active={active === index}
       class:mounted
       style:transition-delay="{index * 55}ms"
+      onmouseenter={() => onhover?.(index)}
     >
       <div class="resume-card">
         <div class="resume-badge">

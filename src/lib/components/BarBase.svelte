@@ -6,15 +6,18 @@
 
   const CHARS = [char1, char2, char3];
 
-  let { items, active = 0, mounted = false, content }: {
+  let { items, active = 0, mounted = false, onhover, onleave, onclick: onitemclick, content }: {
     items: { role: { text: string; color?: string } }[];
     active: number;
     mounted: boolean;
+    onhover?: (index: number) => void;
+    onleave?: () => void;
+    onclick?: (index: number) => void;
     content: Snippet<[{ item: any; index: number; isActive: boolean }]>;
   } = $props();
 </script>
 
-<div class="sc-root" role="navigation">
+<div class="sc-root" role="navigation" onmouseleave={() => onleave?.()}>
   {#each items as item, i}
     {@const isActive = active === i}
     <div
@@ -22,6 +25,8 @@
       class:active={isActive}
       class:mounted
       style:transition-delay="{i * 80}ms"
+      onmouseenter={() => onhover?.(i)}
+      onclick={() => onitemclick?.(i)}
     >
       <div class="sc-bar-red"></div>
       <div class="sc-bar">
