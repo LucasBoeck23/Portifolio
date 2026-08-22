@@ -1,8 +1,8 @@
 <script lang="ts">
   const hints = [
-    { keys: '↑↓', action: 'SELECT' },
-    { keys: '↵', action: 'OPEN' },
-    { keys: 'ESC', action: 'BACK' },
+    { keys: '↑↓', action: 'SELECIONAR' },
+    { keys: '↵', action: 'ABRIR' },
+    { keys: 'ESC', action: 'VOLTAR' },
   ];
 </script>
 

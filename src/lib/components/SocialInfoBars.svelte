@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { SocialInfoBar } from '$lib/data/social-items';
-  import newsign from '$assets/images/newsign.png';
+  import newsign from '$assets/images/newsign.webp';
 
   let { infoBars = [], activeIndex = 0, focused = false, onhover, onleave, onclick: onitemclick }: {
     infoBars: SocialInfoBar[];
@@ -26,8 +26,6 @@
       {/if}
       <div class="info-bar">
         <span class="info-bar-text">{bar.link.length > 28 ? bar.link.slice(0, 28) + '...' : bar.link}</span>
-        <span class="info-bar-box">VIEWS</span>
-        <span class="info-bar-count">{bar.count}</span>
       </div>
     </div>
   {/each}

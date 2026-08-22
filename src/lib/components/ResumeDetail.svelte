@@ -4,8 +4,10 @@
   let { category }: { category: ResumeCategory } = $props();
 
   function getStatusColor(status: string): string {
-    if (status === 'Complete' || status === 'Active') return '#22c55e';
-    if (status === 'In Progress') return '#eab308';
+    if (status.startsWith('Completo') || status.startsWith('Ativo')) return '#22c55e';
+    if (status.startsWith('Em Progresso') || status.startsWith('Cursando')) return '#eab308';
+    if (status === 'Principal' || status === 'Experiente') return '#22c55e';
+    if (status === 'Intermediário') return '#eab308';
     return '#6b7280';
   }
 </script>
@@ -13,8 +15,8 @@
 <div class="resume-detail-panel">
   <div class="resume-detail-top">
     <div class="resume-detail-top-index">{category.badge}</div>
-    <div class="resume-detail-top-title">{category.title} LOG</div>
-    <div class="resume-detail-top-progress">{category.rows.length}/{category.rank}</div>
+    <div class="resume-detail-top-title">{category.title}</div>
+    <div class="resume-detail-top-progress">{category.rows.length}</div>
   </div>
 
   <div class="resume-detail-list">
@@ -30,11 +32,11 @@
   </div>
 
   <div class="resume-detail-bottom">
-    <div class="resume-detail-bottom-title">DETAILS</div>
+    <div class="resume-detail-bottom-title">DETALHES</div>
     <div class="resume-detail-bullets">
-      <div class="resume-detail-bullet">- Maintain progress across required items and supporting work.</div>
-      <div class="resume-detail-bullet">- Track portfolio-ready projects tied to this category.</div>
-      <div class="resume-detail-bullet">- Keep materials prepared for review and evaluation.</div>
+      <div class="resume-detail-bullet">- Manter progresso nos itens obrigatórios e trabalhos de apoio.</div>
+      <div class="resume-detail-bullet">- Acompanhar projetos prontos para portfólio ligados a esta categoria.</div>
+      <div class="resume-detail-bullet">- Manter materiais preparados para revisão e avaliação.</div>
     </div>
   </div>
 </div>
@@ -45,7 +47,7 @@
     top: 9.5vh;
     right: 4.5vw;
     width: min(39vw, 620px);
-    min-height: 74vh;
+    max-height: 82vh;
     z-index: 12;
     padding: 22px 24px 24px 24px;
     background: linear-gradient(180deg, rgba(15, 28, 105, 0.96) 0%, rgba(8, 16, 68, 0.97) 100%);
@@ -53,7 +55,9 @@
     box-shadow:
       inset 0 0 0 1px rgba(133, 244, 255, 0.16),
       16px 16px 0 rgba(0, 6, 30, 0.55);
-    overflow: hidden;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(133, 244, 255, 0.4) transparent;
     transform: scale(var(--ui-scale, 1));
     transform-origin: top right;
   }
@@ -116,7 +120,7 @@
     align-items: center;
     gap: 14px;
     min-height: 56px;
-    padding: 0 14px;
+    padding: 10px 14px;
     background: rgba(8, 18, 72, 0.96);
     clip-path: polygon(0 0, 100% 0, calc(100% - 14px) 100%, 0 100%);
     box-shadow: inset 0 0 0 1px rgba(140, 239, 255, 0.12);
@@ -137,8 +141,8 @@
 
   .resume-detail-row-title {
     font-family: 'Anton', sans-serif;
-    font-size: 28px;
-    line-height: 1;
+    font-size: 22px;
+    line-height: 1.1;
     color: #f2fcff;
   }
 

@@ -1,9 +1,16 @@
 <script lang="ts">
   import { goto } from '$app/navigation';
   import { MENU_ITEMS } from '$lib/data/menu-items';
+  import { useKeyboardNav } from '$lib/utils/use-keyboard-nav.svelte';
 
-  let active = $state(-1);
-  let mounted = $state(false);
+  const nav = useKeyboardNav({
+    itemCount: MENU_ITEMS.length,
+    onSelect: (i) => navigateTo(MENU_ITEMS[i]),
+  });
+
+  // Alias for template readability
+  let active = $derived(nav.active);
+  let mounted = $derived(nav.mounted);
 
   function getOpacity(index: number): number {
     if (index === active) return 1;
@@ -29,11 +36,6 @@
       goto(item.page);
     }
   }
-
-  $effect(() => {
-    const timer = setTimeout(() => (mounted = true), 60);
-    return () => clearTimeout(timer);
-  });
 </script>
 
 <div class="p3-overlay">
@@ -61,7 +63,7 @@
         style:transition-delay="{i * 80}ms"
         role="menuitem"
         tabindex="-1"
-        onmouseenter={() => (active = i)}
+        onmouseenter={() => (nav.active = i)}
         onclick={() => navigateTo(item)}
       >
         <div class="p3-glow"></div>

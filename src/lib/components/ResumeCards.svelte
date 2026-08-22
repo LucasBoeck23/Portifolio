@@ -12,7 +12,7 @@
 </script>
 
 <div class="resume-stack" onmouseleave={() => onleave?.()}>
-  <div class="resume-list-tag" class:mounted>LIST</div>
+  <div class="resume-list-tag" class:mounted>LISTA</div>
 
   {#each RESUME_CATEGORIES as category, index}
     <div
