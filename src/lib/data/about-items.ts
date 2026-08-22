@@ -1,9 +1,9 @@
-import char1 from '$assets/images/char1.webp';
-import char2 from '$assets/images/char2.webp';
-import char3 from '$assets/images/char3.webp';
-import mainm from '$assets/images/mainm.webp';
-import mainm2 from '$assets/images/mainm2.webp';
-import mainf from '$assets/images/mainf.webp';
+import char1 from '$assets/images/char1.png';
+import char2 from '$assets/images/char2.png';
+import char3 from '$assets/images/char3.png';
+import mainm from '$assets/images/mainm.jpeg';
+import mainm2 from '$assets/images/mainm2.jpeg';
+import mainf from '$assets/images/mainf.jpeg';
 
 export interface AboutItem {
   id: string;
