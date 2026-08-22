@@ -1,8 +1,8 @@
 <script lang="ts">
-  let { src, fallback }: { src: string; fallback?: string } = $props();
+  let { src, fallback, poster }: { src: string; fallback?: string; poster?: string } = $props();
 </script>
 
-<video loop muted playsinline autoplay class="video-bg">
+<video loop muted playsinline autoplay preload="metadata" class="video-bg" poster={poster}>
   <source {src} type="video/webm" />
   {#if fallback}
     <source src={fallback} type="video/mp4" />

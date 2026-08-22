@@ -1,9 +1,9 @@
 import icon1 from '$assets/images/icon1.png';
 import icon2 from '$assets/images/icon2.png';
 import icon3 from '$assets/images/icon3.png';
-import char1 from '$assets/images/char1.png';
-import char2 from '$assets/images/char2.png';
-import char3 from '$assets/images/char3.png';
+import char1 from '$assets/images/char1.webp';
+import char2 from '$assets/images/char2.webp';
+import char3 from '$assets/images/char3.webp';
 
 export interface SocialStat {
   tag: string;

@@ -12,6 +12,7 @@
   const nav = useKeyboardNav({
     itemCount: ABOUT_ITEMS.length,
     onBack: () => history.back(),
+    onSelect: () => (revealed = true),
   });
 </script>
 

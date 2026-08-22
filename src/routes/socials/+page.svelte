@@ -13,6 +13,7 @@
   const nav = useKeyboardNav({
     itemCount: SOCIAL_PLATFORMS.length,
     onBack: () => history.back(),
+    onSelect: (i) => window.open(SOCIAL_PLATFORMS[i].href, '_blank'),
   });
 
   let activePlatform = $derived(SOCIAL_PLATFORMS[nav.active] ?? SOCIAL_PLATFORMS[0]);

@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { SocialInfoBar } from '$lib/data/social-items';
-  import newsign from '$assets/images/newsign.png';
+  import newsign from '$assets/images/newsign.webp';
 
   let { infoBars = [], activeIndex = 0, focused = false, onhover, onleave, onclick: onitemclick }: {
     infoBars: SocialInfoBar[];
