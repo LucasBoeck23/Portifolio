@@ -3,7 +3,6 @@ import type { Handle } from '@sveltejs/kit';
 export const handle: Handle = async ({ event, resolve }) => {
 	const { url, request } = event;
 
-	// Check Referer header to detect internal navigation (for no-JS scenarios)
 	const referer = request.headers.get('Referer');
 	let splashSkip = false;
 

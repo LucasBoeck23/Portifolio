@@ -259,9 +259,9 @@
   .reveal-portrait {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: top right;
+    object-fit: contain;
+    object-position: bottom right;
     transform: skewX(8deg) scale(1.08);
-    transform-origin: top right;
+    transform-origin: bottom right;
   }
 </style>
