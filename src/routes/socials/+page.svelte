@@ -6,7 +6,7 @@
   import BackButton from '$lib/components/BackButton.svelte';
   import { SOCIAL_PLATFORMS } from '$lib/data/social-items';
   import { useKeyboardNav } from '$lib/utils/use-keyboard-nav.svelte';
-  import bgLoop from '$assets/videos/p3-bg-loop.webm';
+  import bgLoop from '$assets/videos/p3-bg-loop-short.webm';
 
   let activeInfoBar = $state(-1);
   let toastMessage = $state('');

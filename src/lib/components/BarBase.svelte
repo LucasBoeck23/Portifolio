@@ -80,6 +80,7 @@
     clip-path: polygon(0 0, 100% 0, calc(100% - 14px) 100%, 0 100%);
     box-shadow: 0 6px 24px rgba(0, 0, 0, 0.65);
     z-index: 1;
+    contain: layout style;
   }
 
   .sc-bar-outer.active .sc-bar {
@@ -111,6 +112,7 @@
     transition: opacity 0.2s ease, height 0.3s cubic-bezier(0.22, 1, 0.36, 1);
     z-index: 0;
     pointer-events: none;
+    contain: layout style;
   }
 
   .sc-bar-outer.active .sc-bar-red {

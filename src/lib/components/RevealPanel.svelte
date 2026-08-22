@@ -242,17 +242,14 @@
     0% {
       opacity: 0;
       transform: translateX(78px) skewX(-8deg) scale(0.94);
-      filter: blur(8px);
     }
     55% {
       opacity: 0.9;
       transform: translateX(-8px) skewX(-8deg) scale(1.015);
-      filter: blur(0);
     }
     100% {
       opacity: 0.96;
       transform: translateX(0) skewX(-8deg) scale(1);
-      filter: blur(0);
     }
   }
 

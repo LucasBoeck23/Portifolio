@@ -35,14 +35,21 @@
 
   .circle-bg {
     position: fixed;
-    inset: 0;
+    top: 50%;
+    left: 50%;
+    width: 300vmax;
+    height: 300vmax;
+    margin-top: -150vmax;
+    margin-left: -150vmax;
     background: #0047FF;
     z-index: 1;
-    clip-path: circle(0% at 50% 50%);
-    transition: clip-path 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    border-radius: 50%;
+    transform: scale(0);
+    transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
   }
 
   .resume-page.circle-revealed .circle-bg {
-    clip-path: circle(150vmax at 50% 50%);
+    transform: scale(1);
   }
 </style>
