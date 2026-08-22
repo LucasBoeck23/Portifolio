@@ -5,7 +5,7 @@
   import BackButton from '$lib/components/BackButton.svelte';
   import { ABOUT_ITEMS } from '$lib/data/about-items';
   import { useKeyboardNav } from '$lib/utils/use-keyboard-nav.svelte';
-  import bgLoop from '$assets/videos/p3-bg-loop-short.webm';
+  import bgLoop from '$assets/videos/p3-bg-loop-720-60fps.webm';
 
   let revealed = $state(false);
 
