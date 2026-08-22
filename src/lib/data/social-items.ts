@@ -1,6 +1,3 @@
-import icon1 from '$assets/images/icon1.png';
-import icon2 from '$assets/images/icon2.png';
-import icon3 from '$assets/images/icon3.png';
 import char1 from '$assets/images/char1.webp';
 import char2 from '$assets/images/char2.webp';
 import char3 from '$assets/images/char3.webp';
@@ -23,7 +20,6 @@ export interface SocialPlatform {
   handle: string;
   href: string;
   icon: string;
-  barIcon: string;
   character: string;
   role: { text: string; color: string };
   stats: SocialStat[];
@@ -37,7 +33,6 @@ export const SOCIAL_PLATFORMS: SocialPlatform[] = [
     handle: '@lucas-boeck',
     href: 'https://www.linkedin.com/in/lucas-boeck/',
     icon: '💼',
-    barIcon: icon1,
     character: char1,
     role: { text: 'LÍDER', color: '#e8c100' },
     stats: [
@@ -53,7 +48,6 @@ export const SOCIAL_PLATFORMS: SocialPlatform[] = [
     handle: 'boecklucas23@gmail.com',
     href: 'mailto:boecklucas23@gmail.com',
     icon: '📧',
-    barIcon: icon2,
     character: char2,
     role: { text: 'EQUIPE', color: '#4a8fff' },
     stats: [
@@ -69,7 +63,6 @@ export const SOCIAL_PLATFORMS: SocialPlatform[] = [
     handle: 'boeck_lucas',
     href: 'clipboard:boeck_lucas',
     icon: '🎮',
-    barIcon: icon3,
     character: char3,
     role: { text: 'EQUIPE', color: '#4a8fff' },
     stats: [

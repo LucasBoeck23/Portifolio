@@ -1,8 +1,9 @@
 <script lang="ts">
   import { goto } from '$app/navigation';
+  import { base } from '$app/paths';
 </script>
 
-<button class="back-btn" onclick={() => goto('/')}>
+<button class="back-btn" onclick={() => goto(base + '/')}>
   ◄ VOLTAR
 </button>
 

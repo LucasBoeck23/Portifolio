@@ -1,5 +1,6 @@
 <script lang="ts">
   import { goto } from '$app/navigation';
+  import { base } from '$app/paths';
   import { MENU_ITEMS } from '$lib/data/menu-items';
   import { useKeyboardNav } from '$lib/utils/use-keyboard-nav.svelte';
 
@@ -33,7 +34,7 @@
     if (item.external) {
       window.open(item.page, '_blank');
     } else {
-      goto(item.page);
+      goto(base + item.page);
     }
   }
 </script>
