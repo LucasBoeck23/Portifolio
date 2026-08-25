@@ -4,7 +4,7 @@
   import { page } from '$app/stores';
   import MusicPlayer from '$lib/components/MusicPlayer.svelte';
   import VideoBackground from '$lib/components/VideoBackground.svelte';
-  import bgLoop from '$assets/videos/p3-bg-loop-av1.webm';
+  import bgLoop from '$assets/videos/bg-main.webm';
 
   let { children } = $props();
 

@@ -3,7 +3,7 @@
   import ActivityDetail from '$lib/components/ActivityDetail.svelte';
   import BackButton from '$lib/components/BackButton.svelte';
   import { loadActivity, type DayActivity } from '$lib/utils/github';
-  import trainBg from '$assets/videos/train-ride-p3.webm';
+  import trainBg from '$assets/videos/bg-log.webm';
 
   const activities = loadActivity();
   let selectedDate = $state(new Date().toISOString().slice(0, 10));
