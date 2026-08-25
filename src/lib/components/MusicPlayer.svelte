@@ -69,6 +69,8 @@
       activeAudio.pause();
     } else {
       activeAudio.play().catch(() => {});
+      // Only start preloading next track after user first interacts
+      preloadNext();
     }
   }
 
@@ -171,24 +173,21 @@
   onMount(() => {
     mounted = true;
 
-    // Create two audio elements
+    // Create two audio elements - but DON'T load anything yet
+    // Audio only loads when user clicks play (saves bandwidth for video bg)
     activeAudio = document.createElement('audio');
     preloadAudio = document.createElement('audio');
 
-    activeAudio.preload = 'auto';
+    activeAudio.preload = 'none';
     preloadAudio.preload = 'none';
 
     setupAudioEvents(activeAudio);
     setupAudioEvents(preloadAudio);
 
-    // Load first track
+    // Just set the src for metadata (duration display), don't download audio data
     activeAudio.src = trackSrc(0);
     activeAudio.dataset.track = '0';
-
-    // Preload second track
-    preloadAudio.src = trackSrc(1);
-    preloadAudio.dataset.track = '1';
-    preloadAudio.preload = 'auto';
+    activeAudio.preload = 'metadata';
 
     return () => {
       if (activeAudio) {

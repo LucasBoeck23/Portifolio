@@ -12,7 +12,7 @@
 </script>
 
 <div class="log-page">
-  <video class="log-bg-video" autoplay loop muted playsinline>
+  <video class="log-bg-video" autoplay loop muted playsinline preload="auto">
     <source src={trainBg} type="video/webm" />
   </video>
 
