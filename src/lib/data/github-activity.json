@@ -1,0 +1,483 @@
+{
+  "2026-08-22": {
+    "date": "2026-08-22",
+    "events": [
+      {
+        "type": "PushEvent",
+        "time": "04:16",
+        "repo": "Portifolio",
+        "commits": [
+          {
+            "sha": "12f84c3",
+            "message": "diminui qualidade do video"
+          }
+        ]
+      },
+      {
+        "type": "PushEvent",
+        "time": "03:44",
+        "repo": "Portifolio",
+        "commits": [
+          {
+            "sha": "a8967a1",
+            "message": "perf: deep performance optimizations"
+          }
+        ]
+      },
+      {
+        "type": "PushEvent",
+        "time": "02:53",
+        "repo": "Portifolio",
+        "commits": [
+          {
+            "sha": "c323bfd",
+            "message": "fix: GitHub Pages routing + remove unused assets"
+          }
+        ]
+      },
+      {
+        "type": "PushEvent",
+        "time": "02:39",
+        "repo": "Portifolio",
+        "commits": [
+          {
+            "sha": "2768d28",
+            "message": "chore: setup GitHub Pages deploy (adapter-static + workflow)"
+          }
+        ]
+      },
+      {
+        "type": "PushEvent",
+        "time": "02:35",
+        "repo": "Portifolio",
+        "commits": [
+          {
+            "sha": "964a1de",
+            "message": "feat: performance overhaul + dados pessoais + PT-BR"
+          }
+        ]
+      },
+      {
+        "type": "PushEvent",
+        "time": "01:01",
+        "repo": "Portifolio",
+        "commits": [
+          {
+            "sha": "a5f1950",
+            "message": "Revert \"perf: major performance overhaul\""
+          }
+        ]
+      },
+      {
+        "type": "PushEvent",
+        "time": "01:00",
+        "repo": "Portifolio",
+        "commits": [
+          {
+            "sha": "7aec314",
+            "message": "perf: major performance overhaul"
+          }
+        ]
+      },
+      {
+        "type": "PushEvent",
+        "time": "00:49",
+        "repo": "Portifolio",
+        "commits": [
+          {
+            "sha": "d85d785",
+            "message": "fix: portrait image contain instead of cover + sync lock"
+          }
+        ]
+      }
+    ],
+    "commitCount": 8,
+    "repos": [
+      "Portifolio"
+    ]
+  },
+  "2026-08-20": {
+    "date": "2026-08-20",
+    "events": [
+      {
+        "type": "PushEvent",
+        "time": "23:42",
+        "repo": "Projeto-Lola",
+        "commits": [
+          {
+            "sha": "b4bb05d",
+            "message": "wip: refatoracao AI e novos modulos de voz/emocao"
+          }
+        ]
+      },
+      {
+        "type": "PushEvent",
+        "time": "02:28",
+        "repo": "Portifolio",
+        "commits": [
+          {
+            "sha": "55d9374",
+            "message": "refactor: replace keyboard nav with mouse interaction"
+          }
+        ]
+      }
+    ],
+    "commitCount": 2,
+    "repos": [
+      "Portifolio",
+      "Projeto-Lola"
+    ]
+  },
+  "2026-08-19": {
+    "date": "2026-08-19",
+    "events": [
+      {
+        "type": "PushEvent",
+        "time": "23:36",
+        "repo": "Portifolio",
+        "commits": [
+          {
+            "sha": "35eeb88",
+            "message": "feat: portfolio base - splash screen, video optimization, keyboard nav"
+          }
+        ]
+      }
+    ],
+    "commitCount": 1,
+    "repos": [
+      "Portifolio"
+    ]
+  },
+  "2026-07-15": {
+    "date": "2026-07-15",
+    "events": [
+      {
+        "type": "PushEvent",
+        "time": "21:21",
+        "repo": "Portifolio",
+        "commits": [
+          {
+            "sha": "853f789",
+            "message": "Initial commit"
+          }
+        ]
+      },
+      {
+        "type": "PushEvent",
+        "time": "01:24",
+        "repo": "roadmap",
+        "commits": [
+          {
+            "sha": "e86b3d6",
+            "message": "feat: IDE-style UI with split view, syntax highlighting, multi-track support"
+          }
+        ]
+      }
+    ],
+    "commitCount": 2,
+    "repos": [
+      "Portifolio",
+      "roadmap"
+    ]
+  },
+  "2026-06-22": {
+    "date": "2026-06-22",
+    "events": [
+      {
+        "type": "PushEvent",
+        "time": "04:41",
+        "repo": "fish_ball_cat",
+        "commits": [
+          {
+            "sha": "8b53a29",
+            "message": "kick off"
+          }
+        ]
+      }
+    ],
+    "commitCount": 1,
+    "repos": [
+      "fish_ball_cat"
+    ]
+  },
+  "2026-08-17": {
+    "date": "2026-08-17",
+    "events": [
+      {
+        "type": "PushEvent",
+        "time": "23:57",
+        "repo": "Ayn-Thor-Manager",
+        "commits": [
+          {
+            "sha": "f71a052",
+            "message": "refactor: split MainWindow into partial classes, add design system"
+          }
+        ]
+      }
+    ],
+    "commitCount": 1,
+    "repos": [
+      "Ayn-Thor-Manager"
+    ]
+  },
+  "2026-08-14": {
+    "date": "2026-08-14",
+    "events": [
+      {
+        "type": "PushEvent",
+        "time": "03:13",
+        "repo": "Ayn-Thor-Manager",
+        "commits": [
+          {
+            "sha": "e9c157a",
+            "message": "refactor: remove dead code, add companion APK, net stats, icon, scrcpy improvements"
+          }
+        ]
+      },
+      {
+        "type": "PushEvent",
+        "time": "00:43",
+        "repo": "Ayn-Thor-Manager",
+        "commits": [
+          {
+            "sha": "17ad630",
+            "message": "feat: Bluetooth APK transfer option"
+          }
+        ]
+      },
+      {
+        "type": "PushEvent",
+        "time": "00:39",
+        "repo": "Ayn-Thor-Manager",
+        "commits": [
+          {
+            "sha": "2de03ef",
+            "message": "feat: USB install button for companion app"
+          }
+        ]
+      },
+      {
+        "type": "PushEvent",
+        "time": "00:24",
+        "repo": "Ayn-Thor-Manager",
+        "commits": [
+          {
+            "sha": "4c55a73",
+            "message": "feat: Ayn Thor Link companion app (Android)"
+          }
+        ]
+      }
+    ],
+    "commitCount": 4,
+    "repos": [
+      "Ayn-Thor-Manager"
+    ]
+  },
+  "2026-08-11": {
+    "date": "2026-08-11",
+    "events": [
+      {
+        "type": "PushEvent",
+        "time": "01:57",
+        "repo": "Ayn-Thor-Manager",
+        "commits": [
+          {
+            "sha": "434a70c",
+            "message": "feat: WPF desktop app with scrcpy overlay, remove turn-screen-off"
+          }
+        ]
+      },
+      {
+        "type": "PushEvent",
+        "time": "01:17",
+        "repo": "Ayn-Thor-Manager",
+        "commits": [
+          {
+            "sha": "e7459b9",
+            "message": "feat: scrcpy streaming, device scan, code cleanup"
+          }
+        ]
+      }
+    ],
+    "commitCount": 2,
+    "repos": [
+      "Ayn-Thor-Manager"
+    ]
+  },
+  "2026-08-10": {
+    "date": "2026-08-10",
+    "events": [
+      {
+        "type": "PushEvent",
+        "time": "04:43",
+        "repo": "Ayn-Thor-Manager",
+        "commits": [
+          {
+            "sha": "3145403",
+            "message": "feat: ADB file manager MVP with web UI"
+          }
+        ]
+      }
+    ],
+    "commitCount": 1,
+    "repos": [
+      "Ayn-Thor-Manager"
+    ]
+  },
+  "2026-08-09": {
+    "date": "2026-08-09",
+    "events": [
+      {
+        "type": "PushEvent",
+        "time": "22:07",
+        "repo": "Ayn-Thor-Manager",
+        "commits": [
+          {
+            "sha": "bada7a5",
+            "message": "Initial commit"
+          }
+        ]
+      },
+      {
+        "type": "PushEvent",
+        "time": "21:44",
+        "repo": "Soliton",
+        "commits": [
+          {
+            "sha": "1e79c4b",
+            "message": "Kick off"
+          }
+        ]
+      }
+    ],
+    "commitCount": 2,
+    "repos": [
+      "Ayn-Thor-Manager",
+      "Soliton"
+    ]
+  },
+  "2026-08-04": {
+    "date": "2026-08-04",
+    "events": [
+      {
+        "type": "PushEvent",
+        "time": "00:09",
+        "repo": "Soliton",
+        "commits": [
+          {
+            "sha": "ad48aa0",
+            "message": "Initial commit"
+          }
+        ]
+      }
+    ],
+    "commitCount": 1,
+    "repos": [
+      "Soliton"
+    ]
+  },
+  "2026-07-14": {
+    "date": "2026-07-14",
+    "events": [
+      {
+        "type": "PushEvent",
+        "time": "02:37",
+        "repo": "roadmap",
+        "commits": [
+          {
+            "sha": "27ca25a",
+            "message": "ci: fix base path for renamed repo"
+          }
+        ]
+      },
+      {
+        "type": "PushEvent",
+        "time": "02:21",
+        "repo": "roadmap",
+        "commits": [
+          {
+            "sha": "056606a",
+            "message": "ci: add GitHub Pages deploy workflow"
+          }
+        ]
+      },
+      {
+        "type": "PushEvent",
+        "time": "02:17",
+        "repo": "roadmap",
+        "commits": [
+          {
+            "sha": "ce73ce2",
+            "message": "feat: initial project setup - Blazor WASM IDE-style roadmap viewer"
+          }
+        ]
+      }
+    ],
+    "commitCount": 3,
+    "repos": [
+      "roadmap"
+    ]
+  },
+  "2026-07-13": {
+    "date": "2026-07-13",
+    "events": [
+      {
+        "type": "PushEvent",
+        "time": "21:46",
+        "repo": "roadmap",
+        "commits": [
+          {
+            "sha": "aaade49",
+            "message": "Initial commit"
+          }
+        ]
+      }
+    ],
+    "commitCount": 1,
+    "repos": [
+      "roadmap"
+    ]
+  },
+  "2026-06-15": {
+    "date": "2026-06-15",
+    "events": [
+      {
+        "type": "PushEvent",
+        "time": "02:07",
+        "repo": "financeiro_mobile",
+        "commits": [
+          {
+            "sha": "f8179d5",
+            "message": "docs(spec): adiciona spec de filtragem por periodo mensal"
+          }
+        ]
+      },
+      {
+        "type": "PushEvent",
+        "time": "02:07",
+        "repo": "financeiro_mobile",
+        "commits": [
+          {
+            "sha": "346cbd2",
+            "message": "docs(spec): adiciona spec de CRUD de categorias"
+          }
+        ]
+      },
+      {
+        "type": "PushEvent",
+        "time": "02:06",
+        "repo": "financeiro_mobile",
+        "commits": [
+          {
+            "sha": "c3492f8",
+            "message": "feat(payments): valida categoria obrigatoria ao adicionar pagamento"
+          }
+        ]
+      }
+    ],
+    "commitCount": 3,
+    "repos": [
+      "financeiro_mobile"
+    ]
+  }
+}

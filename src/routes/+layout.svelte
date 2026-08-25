@@ -1,6 +1,7 @@
 <script lang="ts">
   import '../app.css';
   import { onMount } from 'svelte';
+  import MusicPlayer from '$lib/components/MusicPlayer.svelte';
 
   let { children } = $props();
 
@@ -18,4 +19,5 @@
   });
 </script>
 
+<MusicPlayer />
 {@render children()}

@@ -3,6 +3,8 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  schedule:
+    - cron: '0 6 * * 1' # Toda segunda-feira às 6h UTC
 
 permissions:
   contents: read
@@ -21,10 +23,16 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
 
       - run: npm ci
+
+      - name: Fetch GitHub activity
+        run: node scripts/fetch-github-activity.js
+        env:
+          GH_ACTIVITY_TOKEN: ${{ secrets.GH_ACTIVITY_TOKEN }}
+
       - run: npm run build
 
       - uses: actions/upload-pages-artifact@v3

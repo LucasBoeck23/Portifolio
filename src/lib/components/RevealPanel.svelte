@@ -19,15 +19,6 @@
       <div class="reveal-lower">{item.revealContent.lower}</div>
     </div>
 
-    <!-- LB/RB navigation indicators -->
-    <div class="reveal-nav">
-      <span class="reveal-nav-arrow left">◄</span>
-      <span class="reveal-nav-btn">LB</span>
-      <span class="reveal-nav-dot"></span>
-      <span class="reveal-nav-btn">RB</span>
-      <span class="reveal-nav-arrow right">►</span>
-    </div>
-
     <!-- Portrait image -->
     <div class="reveal-portrait-shell">
       <img class="reveal-portrait" src={item.portrait} alt="" />
@@ -126,11 +117,11 @@
   }
 
   .reveal-line {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 300;
-    font-size: 20px;
-    letter-spacing: 0.5px;
-    line-height: 1.15;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    letter-spacing: 0.3px;
+    line-height: 1.4;
   }
 
   /* Lower content bar */
@@ -147,9 +138,9 @@
     align-items: center;
     justify-content: flex-start;
     color: #fff;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 300;
-    font-size: 22px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
     letter-spacing: 0.4px;
     text-transform: lowercase;
     padding-left: 22px;

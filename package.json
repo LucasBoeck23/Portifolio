@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "vite dev",
-    "build": "vite build",
+    "build": "node scripts/fetch-github-activity.js && vite build",
     "preview": "vite preview",
+    "fetch-activity": "node scripts/fetch-github-activity.js",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "test": "vitest run"
   },
