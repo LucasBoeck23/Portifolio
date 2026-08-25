@@ -1,7 +1,7 @@
 <script lang="ts">
   import VideoBackground from '$lib/components/VideoBackground.svelte';
   import P3Menu from '$lib/components/P3Menu.svelte';
-  import bgLoop from '$assets/videos/p3-bg-loop.webm';
+  import bgLoop from '$assets/videos/p3-bg-loop-720-60fps.webm';
 </script>
 
 <VideoBackground src={bgLoop} />
