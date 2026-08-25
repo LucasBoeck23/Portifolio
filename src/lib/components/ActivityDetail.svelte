@@ -67,7 +67,7 @@
 
 <style>
   .detail-panel {
-    background: rgba(5, 10, 40, 0.92);
+    background: rgba(5, 10, 40, 0.9);
     clip-path: polygon(0 0, 100% 0, calc(100% - 16px) 100%, 0 100%);
     padding: 0;
     overflow-y: auto;
@@ -176,7 +176,7 @@
 
   .event-bar {
     flex: 1;
-    background: rgba(10, 18, 60, 0.8);
+    background: rgba(10, 18, 60, 0.4);
     border-left: 3px solid #3ce2ff;
     padding: 10px 14px;
     clip-path: polygon(0 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
@@ -184,7 +184,7 @@
   }
 
   .event-bar:hover {
-    background: rgba(20, 35, 100, 0.9);
+    background: rgba(20, 35, 100, 0.6);
   }
 
   .event-bar-header {

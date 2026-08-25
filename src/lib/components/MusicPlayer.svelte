@@ -1,43 +1,48 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { base } from '$app/paths';
+  import moonReaching from '$assets/audio/moons-reaching.opus';
+  import massDestruction from '$assets/audio/mass-destruction.opus';
+  import burnMyDread from '$assets/audio/burn-my-dread.opus';
+  import fullMoon from '$assets/audio/full-moon-full-life.opus';
+  import colorYourNight from '$assets/audio/color-your-night.opus';
 
   interface Track {
     title: string;
     artist: string;
-    file: string;
+    src: string;
   }
 
   const TRACKS: Track[] = [
     {
+      title: "Moon's Reaching Out Stars",
+      artist: 'Yumi Kawamura',
+      src: moonReaching,
+    },
+    {
       title: 'Mass Destruction',
       artist: 'Lotus Juice',
-      file: 'mass-destruction.opus',
+      src: massDestruction,
     },
     {
       title: 'Burn My Dread',
       artist: 'Yumi Kawamura',
-      file: 'burn-my-dread.opus',
-    },
-    {
-      title: "Moon's Reaching Out Stars",
-      artist: 'Yumi Kawamura',
-      file: 'moons-reaching.opus',
+      src: burnMyDread,
     },
     {
       title: 'Full Moon Full Life',
       artist: 'Azumi Takahashi',
-      file: 'full-moon-full-life.opus',
+      src: fullMoon,
     },
     {
       title: 'Color Your Night',
       artist: 'Azumi Takahashi',
-      file: 'color-your-night.opus',
+      src: colorYourNight,
     },
   ];
 
   function trackSrc(index: number): string {
-    return `${base}/audio/${TRACKS[index].file}`;
+    return TRACKS[index].src;
   }
 
   let expanded = $state(false);
