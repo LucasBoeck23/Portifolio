@@ -1,12 +1,10 @@
 <script lang="ts">
-  import VideoBackground from '$lib/components/VideoBackground.svelte';
   import SocialBars from '$lib/components/SocialBars.svelte';
   import SocialNav from '$lib/components/SocialNav.svelte';
   import SocialInfoBars from '$lib/components/SocialInfoBars.svelte';
   import BackButton from '$lib/components/BackButton.svelte';
   import { SOCIAL_PLATFORMS } from '$lib/data/social-items';
   import { useKeyboardNav } from '$lib/utils/use-keyboard-nav.svelte';
-  import bgLoop from '$assets/videos/p3-bg-loop-720-60fps.webm';
 
   let activeInfoBar = $state(-1);
   let toastMessage = $state('');
@@ -39,7 +37,6 @@
   let activePlatform = $derived(SOCIAL_PLATFORMS[nav.active] ?? SOCIAL_PLATFORMS[0]);
 </script>
 
-<VideoBackground src={bgLoop} />
 <SocialBars
   active={nav.active}
   mounted={nav.mounted}

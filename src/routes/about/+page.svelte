@@ -1,11 +1,9 @@
 <script lang="ts">
-  import VideoBackground from '$lib/components/VideoBackground.svelte';
   import AboutBars from '$lib/components/AboutBars.svelte';
   import RevealPanel from '$lib/components/RevealPanel.svelte';
   import BackButton from '$lib/components/BackButton.svelte';
   import { ABOUT_ITEMS } from '$lib/data/about-items';
   import { useKeyboardNav } from '$lib/utils/use-keyboard-nav.svelte';
-  import bgLoop from '$assets/videos/p3-bg-loop-720-60fps.webm';
 
   let revealed = $state(false);
 
@@ -16,7 +14,6 @@
   });
 </script>
 
-<VideoBackground src={bgLoop} />
 <AboutBars
   active={nav.active}
   mounted={nav.mounted}

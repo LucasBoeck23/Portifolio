@@ -1,23 +1,32 @@
 <script lang="ts">
   import '../app.css';
   import { onMount } from 'svelte';
+  import { page } from '$app/stores';
   import MusicPlayer from '$lib/components/MusicPlayer.svelte';
+  import VideoBackground from '$lib/components/VideoBackground.svelte';
+  import bgLoop from '$assets/videos/p3-bg-loop-av1.webm';
 
   let { children } = $props();
+
+  // Páginas que usam o vídeo de fundo principal
+  let showMainBg = $derived(
+    !$page.url.pathname.includes('/log') && !$page.url.pathname.includes('/resume')
+  );
 
   // Remove splash screen after hydration
   onMount(() => {
     const splash = document.getElementById('splash');
     if (splash) {
-      // Wait for CSS animation to finish, then remove from DOM
       splash.addEventListener('animationend', () => {
         splash.remove();
       });
-      // Fallback: remove after 3s even if animationend didn't fire
       setTimeout(() => splash.remove(), 3000);
     }
   });
 </script>
 
+{#if showMainBg}
+  <VideoBackground src={bgLoop} />
+{/if}
 <MusicPlayer />
 {@render children()}
