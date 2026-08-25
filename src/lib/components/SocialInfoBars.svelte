@@ -12,14 +12,17 @@
   } = $props();
 </script>
 
-<div class="info-bars-container" onmouseleave={() => onleave?.()}>
+<div class="info-bars-container" role="list" onmouseleave={() => onleave?.()}>
   {#each infoBars as bar, i}
     <div
       class="info-bar-wrap"
       class:selected={activeIndex === i}
       style:animation-delay="{i * 50}ms"
+      role="button"
+      tabindex="0"
       onmouseenter={() => onhover?.(i)}
       onclick={() => onitemclick?.(i)}
+      onkeydown={(e) => { if (e.key === 'Enter') onitemclick?.(i); }}
     >
       {#if bar.isNew}
         <img class="info-bar-new" src={newsign} alt="NEW" />
@@ -120,36 +123,6 @@
   }
 
   .info-bar-wrap.selected .info-bar-text {
-    color: #111;
-  }
-
-  .info-bar-box {
-    height: 70%;
-    background: #000;
-    display: flex;
-    align-items: center;
-    padding: 0 12px;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 20px;
-    letter-spacing: 1px;
-    color: #fff;
-    flex-shrink: 0;
-    border-radius: 6px;
-    margin-right: 4px;
-    user-select: none;
-  }
-
-  .info-bar-count {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px;
-    letter-spacing: 1px;
-    color: #7dd4fc;
-    margin-right: 80px;
-    flex-shrink: 0;
-    user-select: none;
-  }
-
-  .info-bar-wrap.selected .info-bar-count {
     color: #111;
   }
 </style>

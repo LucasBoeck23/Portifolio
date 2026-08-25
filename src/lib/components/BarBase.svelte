@@ -25,8 +25,11 @@
       class:active={isActive}
       class:mounted
       style:transition-delay="{i * 80}ms"
+      role="button"
+      tabindex="0"
       onmouseenter={() => onhover?.(i)}
       onclick={() => onitemclick?.(i)}
+      onkeydown={(e) => { if (e.key === 'Enter') onitemclick?.(i); }}
     >
       <div class="sc-bar-red"></div>
       <div class="sc-bar">

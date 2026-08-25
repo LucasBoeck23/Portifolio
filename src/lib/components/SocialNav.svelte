@@ -47,20 +47,6 @@
     gap: 6px;
   }
 
-  .nav-btn {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 100px;
-    letter-spacing: 3px;
-    line-height: 1;
-    user-select: none;
-    color: #fff;
-    -webkit-text-stroke: 2px #000;
-    paint-order: stroke fill;
-    background: none;
-    border: none;
-    padding: 0 6px;
-  }
-
   .nav-label {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 28px;

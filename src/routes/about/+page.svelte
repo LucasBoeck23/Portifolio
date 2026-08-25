@@ -24,4 +24,7 @@
   onclick={() => (revealed = true)}
 />
 <RevealPanel item={ABOUT_ITEMS[nav.active] ?? ABOUT_ITEMS[0]} visible={revealed} onclose={() => (revealed = false)} />
-<BackButton />
+<BackButton
+  label={revealed ? 'FECHAR' : 'VOLTAR'}
+  onclick={revealed ? () => (revealed = false) : undefined}
+/>

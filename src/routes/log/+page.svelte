@@ -121,24 +121,4 @@
     from { opacity: 0; transform: translateX(30px); }
     to { opacity: 1; transform: translateX(0); }
   }
-
-  .loading {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 300px;
-  }
-
-  .loading-text {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px;
-    color: rgba(60, 226, 255, 0.6);
-    letter-spacing: 2px;
-    animation: pulse 1.2s ease-in-out infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 0.6; }
-    50% { opacity: 1; }
-  }
 </style>

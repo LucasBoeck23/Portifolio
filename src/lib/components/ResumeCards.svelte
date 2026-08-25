@@ -11,7 +11,7 @@
   const ROMAN_NUMERALS = ['I', 'II', 'III', 'IV'];
 </script>
 
-<div class="resume-stack" onmouseleave={() => onleave?.()}>
+<div class="resume-stack" role="list" onmouseleave={() => onleave?.()}>
   <div class="resume-list-tag" class:mounted>LISTA</div>
 
   {#each RESUME_CATEGORIES as category, index}
@@ -20,6 +20,7 @@
       class:active={active === index}
       class:mounted
       style:transition-delay="{index * 55}ms"
+      role="listitem"
       onmouseenter={() => onhover?.(index)}
     >
       <div class="resume-card">

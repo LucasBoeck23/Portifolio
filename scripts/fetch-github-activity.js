@@ -57,8 +57,9 @@ async function main() {
     if (!Array.isArray(commits)) continue;
 
     for (const commit of commits) {
-      const date = commit.commit.author.date.slice(0, 10);
-      const time = commit.commit.author.date.slice(11, 16);
+      const utcDate = commit.commit.author.date;
+      const date = utcDate.slice(0, 10);
+      const time = utcDate.slice(11, 16);
       const sha = commit.sha.slice(0, 7);
 
       if (!byDay[date]) {
@@ -79,7 +80,7 @@ async function main() {
 
       day.events.push({
         type: 'PushEvent',
-        time,
+        time: utcDate, // ISO completo, browser converte pro local
         repo: repoName,
         commits: [{
           sha,

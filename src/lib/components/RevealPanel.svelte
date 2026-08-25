@@ -5,7 +5,7 @@
 </script>
 
 {#if visible}
-  <div class="reveal-overlay" onclick={() => onclose?.()}>
+  <div class="reveal-overlay" role="button" tabindex="-1" onclick={() => onclose?.()} onkeydown={(e) => { if (e.key === 'Escape') onclose?.(); }}>
     <!-- Dimming overlay -->
     <div class="reveal-dim"></div>
 
@@ -144,76 +144,6 @@
     letter-spacing: 0.4px;
     text-transform: lowercase;
     padding-left: 22px;
-  }
-
-  /* LB/RB navigation - requirement 3.12 */
-  .reveal-nav {
-    position: absolute;
-    top: 10vh;
-    left: 6vw;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    pointer-events: none;
-    z-index: 14;
-    transform: translateX(-40px) rotate(-20deg);
-    transform-origin: left bottom;
-    animation: nav-pop 0.38s cubic-bezier(0.22, 1, 0.36, 1) both;
-  }
-
-  @keyframes nav-pop {
-    0% { opacity: 0; transform: scale(0.55) translateY(-10px); }
-    65% { opacity: 1; transform: scale(1.1) translateY(2px); }
-    100% { opacity: 1; transform: scale(1) translateY(0); }
-  }
-
-  .reveal-nav-btn {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 100px;
-    letter-spacing: 3px;
-    line-height: 1;
-    user-select: none;
-    color: #fff;
-    -webkit-text-stroke: 2px #000;
-    paint-order: stroke fill;
-    background: none;
-    border: none;
-    padding: 0 6px;
-  }
-
-  .reveal-nav-dot {
-    width: 16px;
-    height: 16px;
-    border-radius: 999px;
-    background: #111;
-    margin: 0 10px;
-    flex-shrink: 0;
-  }
-
-  .reveal-nav-arrow {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px;
-    color: #c4001a;
-    display: inline-block;
-    user-select: none;
-  }
-
-  .reveal-nav-arrow.left {
-    animation: arrow-left 0.8s ease-in-out infinite;
-  }
-
-  .reveal-nav-arrow.right {
-    animation: arrow-right 0.8s ease-in-out infinite;
-  }
-
-  @keyframes arrow-left {
-    0%, 100% { transform: translateX(0); opacity: 1; }
-    50% { transform: translateX(-5px); opacity: 0.4; }
-  }
-
-  @keyframes arrow-right {
-    0%, 100% { transform: translateX(0); opacity: 1; }
-    50% { transform: translateX(5px); opacity: 0.4; }
   }
 
   /* Portrait image - requirement 3.11 */

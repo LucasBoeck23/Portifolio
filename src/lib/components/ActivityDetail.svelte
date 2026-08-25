@@ -13,6 +13,16 @@
     const month = d.getMonth() + 1;
     return `${weekday}, ${String(dayNum).padStart(2, '0')}/${String(month).padStart(2, '0')}`;
   }
+
+  function formatTime(isoOrTime: string): string {
+    // Se for ISO completo, converte pro fuso local
+    if (isoOrTime.length > 5) {
+      const d = new Date(isoOrTime);
+      return d.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+    }
+    // Fallback: já é HH:MM
+    return isoOrTime;
+  }
 </script>
 
 {#if day}
@@ -42,7 +52,7 @@
           <div class="event-index">{String(i + 1).padStart(2, '0')}</div>
           <div class="event-bar">
             <div class="event-bar-header">
-              <span class="event-time">{event.time}</span>
+              <span class="event-time">{formatTime(event.time)}</span>
               <span class="event-type">{getEventLabel(event)}</span>
             </div>
             {#if event.type === 'PushEvent' && event.commits.length > 0}

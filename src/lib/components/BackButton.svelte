@@ -1,10 +1,20 @@
 <script lang="ts">
   import { goto } from '$app/navigation';
   import { base } from '$app/paths';
+
+  let { label = 'VOLTAR', onclick }: { label?: string; onclick?: () => void } = $props();
+
+  function handleClick() {
+    if (onclick) {
+      onclick();
+    } else {
+      goto(base + '/');
+    }
+  }
 </script>
 
-<button class="back-btn" onclick={() => goto(base + '/')}>
-  ◄ VOLTAR
+<button class="back-btn" onclick={handleClick}>
+  ◄ {label}
 </button>
 
 <style>

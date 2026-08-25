@@ -65,6 +65,7 @@
         tabindex="-1"
         onmouseenter={() => (nav.active = i)}
         onclick={() => navigateTo(item)}
+        onkeydown={(e) => { if (e.key === 'Enter') navigateTo(item); }}
       >
         <div class="p3-glow"></div>
         <div
