@@ -58,8 +58,9 @@ async function main() {
 
     for (const commit of commits) {
       const utcDate = commit.commit.author.date;
-      const date = utcDate.slice(0, 10);
-      const time = utcDate.slice(11, 16);
+      // Agrupa pela data local (America/Sao_Paulo) pra exibir corretamente
+      const localDate = new Date(utcDate).toLocaleDateString('en-CA', { timeZone: 'America/Sao_Paulo' });
+      const date = localDate; // YYYY-MM-DD no fuso BR
       const sha = commit.sha.slice(0, 7);
 
       if (!byDay[date]) {
