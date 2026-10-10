@@ -19,11 +19,71 @@ export interface DayActivity {
   repos: string[];
 }
 
+interface RawEvent {
+  type: string;
+  time: string;
+  repo: string;
+  sha: string;
+  message: string;
+}
+
+/**
+ * Retorna a data local (YYYY-MM-DD) de um timestamp ISO UTC,
+ * usando o fuso horário do navegador do visitante.
+ */
+function toLocalDate(isoUtc: string): string {
+  const d = new Date(isoUtc);
+  const year = d.getFullYear();
+  const month = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
+
+/**
+ * Retorna "hoje" no fuso local do navegador (YYYY-MM-DD).
+ */
+export function getLocalToday(): string {
+  return toLocalDate(new Date().toISOString());
+}
+
+/**
+ * Carrega os eventos do JSON estático e agrupa por dia
+ * usando o fuso horário local do navegador.
+ */
 export function loadActivity(): Map<string, DayActivity> {
+  const raw = activityData as RawEvent[];
   const map = new Map<string, DayActivity>();
-  for (const [date, day] of Object.entries(activityData as Record<string, DayActivity>)) {
-    map.set(date, day);
+
+  for (const event of raw) {
+    const date = toLocalDate(event.time);
+
+    if (!map.has(date)) {
+      map.set(date, { date, events: [], commitCount: 0, repos: [] });
+    }
+
+    const day = map.get(date)!;
+
+    // Agrupa commits do mesmo repo+hora num único EventEntry,
+    // ou cria um novo entry por commit (mantém granularidade)
+    day.events.push({
+      type: event.type,
+      time: event.time,
+      repo: event.repo,
+      commits: [{ sha: event.sha, message: event.message }],
+    });
+
+    day.commitCount++;
+
+    if (!day.repos.includes(event.repo)) {
+      day.repos.push(event.repo);
+    }
   }
+
+  // Ordena eventos dentro de cada dia (mais recente primeiro)
+  for (const day of map.values()) {
+    day.events.sort((a, b) => b.time.localeCompare(a.time));
+  }
+
   return map;
 }
 

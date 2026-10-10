@@ -2,11 +2,11 @@
   import ActivityCalendar from '$lib/components/ActivityCalendar.svelte';
   import ActivityDetail from '$lib/components/ActivityDetail.svelte';
   import BackButton from '$lib/components/BackButton.svelte';
-  import { loadActivity, type DayActivity } from '$lib/utils/github';
+  import { loadActivity, getLocalToday, type DayActivity } from '$lib/utils/github';
   import trainBg from '$assets/videos/bg-log.webm';
 
   const activities = loadActivity();
-  let selectedDate = $state(new Date().toISOString().slice(0, 10));
+  let selectedDate = $state(getLocalToday());
 
   let selectedDay = $derived(activities.get(selectedDate) ?? null);
 </script>
@@ -49,7 +49,6 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: 0;
   }
 
   .log-header {

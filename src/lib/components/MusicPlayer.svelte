@@ -184,10 +184,11 @@
     setupAudioEvents(activeAudio);
     setupAudioEvents(preloadAudio);
 
-    // Just set the src for metadata (duration display), don't download audio data
+    // Set preload BEFORE src to avoid a double request.
+    // 'metadata' fetches only enough to get duration without downloading audio data.
+    activeAudio.preload = 'metadata';
     activeAudio.src = trackSrc(0);
     activeAudio.dataset.track = '0';
-    activeAudio.preload = 'metadata';
 
     return () => {
       if (activeAudio) {
@@ -286,7 +287,6 @@
 </div>
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap');
 
   .mp3-player {
     position: fixed;

@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { DayActivity } from '$lib/utils/github';
+  import { getLocalToday } from '$lib/utils/github';
 
   let { activities, selectedDate, onselect }: {
     activities: Map<string, DayActivity>;
@@ -15,7 +16,7 @@
   let monthNum = $derived(viewDate.getMonth() + 1);
   let yearNum = $derived(viewDate.getFullYear());
 
-  const today = new Date().toISOString().slice(0, 10);
+  const today = getLocalToday();
 
   function buildCalendar(date: Date): (string | null)[] {
     const year = date.getFullYear();

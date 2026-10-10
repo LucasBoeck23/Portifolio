@@ -1,0 +1,275 @@
+[
+  {
+    "type": "PushEvent",
+    "time": "2026-08-26T00:43:25Z",
+    "repo": "Portifolio",
+    "sha": "d952af5",
+    "message": "fix: agrupar atividade por data local (BRT) em vez de UTC"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-08-26T00:37:51Z",
+    "repo": "Portifolio",
+    "sha": "7185697",
+    "message": "chore: limpa cache de atividade (rename repo)"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-08-25T23:19:38Z",
+    "repo": "Portifolio",
+    "sha": "7ded2b4",
+    "message": "trigger deploy"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-08-25T22:50:46Z",
+    "repo": "Portifolio",
+    "sha": "b651509",
+    "message": "refactor: renomear vídeos + limpeza + otimizações finais"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-08-25T22:10:14Z",
+    "repo": "Portifolio",
+    "sha": "ee2eb43",
+    "message": "muda formato do video"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-08-25T21:21:33Z",
+    "repo": "LucasBoeck23",
+    "sha": "5ff1396",
+    "message": "Update README.md"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-08-25T21:19:28Z",
+    "repo": "Portifolio",
+    "sha": "d97836a",
+    "message": "remove warning +  ajusta botão de voltar + corrige timestamp do diario"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-08-25T04:12:00Z",
+    "repo": "Portifolio",
+    "sha": "5b9138a",
+    "message": "perf: lazy load audio, prioritize video background"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-08-25T03:25:48Z",
+    "repo": "Portifolio",
+    "sha": "5425834",
+    "message": "fix: UI ajustes + music reorder + assets reorganizados"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-08-25T03:02:34Z",
+    "repo": "Portifolio",
+    "sha": "441491f",
+    "message": "perf: home video 720p + train video comprimido (5.2MB→1.3MB)"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-08-25T02:56:15Z",
+    "repo": "Portifolio",
+    "sha": "edc8fdb",
+    "message": "feat: diário de bordo + music player + ajustes UI"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-08-22T04:16:00Z",
+    "repo": "Portifolio",
+    "sha": "12f84c3",
+    "message": "diminui qualidade do video"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-08-22T03:44:04Z",
+    "repo": "Portifolio",
+    "sha": "a8967a1",
+    "message": "perf: deep performance optimizations"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-08-22T02:53:13Z",
+    "repo": "Portifolio",
+    "sha": "c323bfd",
+    "message": "fix: GitHub Pages routing + remove unused assets"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-08-22T02:39:20Z",
+    "repo": "Portifolio",
+    "sha": "2768d28",
+    "message": "chore: setup GitHub Pages deploy (adapter-static + workflow)"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-08-22T02:35:17Z",
+    "repo": "Portifolio",
+    "sha": "964a1de",
+    "message": "feat: performance overhaul + dados pessoais + PT-BR"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-08-22T01:01:04Z",
+    "repo": "Portifolio",
+    "sha": "a5f1950",
+    "message": "Revert \"perf: major performance overhaul\""
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-08-22T01:00:08Z",
+    "repo": "Portifolio",
+    "sha": "7aec314",
+    "message": "perf: major performance overhaul"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-08-22T00:49:56Z",
+    "repo": "Portifolio",
+    "sha": "d85d785",
+    "message": "fix: portrait image contain instead of cover + sync lock"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-08-20T23:42:30Z",
+    "repo": "Projeto-Lola",
+    "sha": "b4bb05d",
+    "message": "wip: refatoracao AI e novos modulos de voz/emocao"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-08-20T02:28:00Z",
+    "repo": "Portifolio",
+    "sha": "55d9374",
+    "message": "refactor: replace keyboard nav with mouse interaction"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-08-19T23:36:57Z",
+    "repo": "Portifolio",
+    "sha": "35eeb88",
+    "message": "feat: portfolio base - splash screen, video optimization, keyboard nav"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-08-17T23:57:22Z",
+    "repo": "Ayn-Thor-Manager",
+    "sha": "f71a052",
+    "message": "refactor: split MainWindow into partial classes, add design system"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-08-14T03:13:37Z",
+    "repo": "Ayn-Thor-Manager",
+    "sha": "e9c157a",
+    "message": "refactor: remove dead code, add companion APK, net stats, icon, scrcpy improvements"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-08-14T00:43:30Z",
+    "repo": "Ayn-Thor-Manager",
+    "sha": "17ad630",
+    "message": "feat: Bluetooth APK transfer option"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-08-14T00:39:24Z",
+    "repo": "Ayn-Thor-Manager",
+    "sha": "2de03ef",
+    "message": "feat: USB install button for companion app"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-08-14T00:24:10Z",
+    "repo": "Ayn-Thor-Manager",
+    "sha": "4c55a73",
+    "message": "feat: Ayn Thor Link companion app (Android)"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-08-11T01:57:02Z",
+    "repo": "Ayn-Thor-Manager",
+    "sha": "434a70c",
+    "message": "feat: WPF desktop app with scrcpy overlay, remove turn-screen-off"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-08-11T01:17:24Z",
+    "repo": "Ayn-Thor-Manager",
+    "sha": "e7459b9",
+    "message": "feat: scrcpy streaming, device scan, code cleanup"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-08-10T04:43:31Z",
+    "repo": "Ayn-Thor-Manager",
+    "sha": "3145403",
+    "message": "feat: ADB file manager MVP with web UI"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-08-09T22:07:14Z",
+    "repo": "Ayn-Thor-Manager",
+    "sha": "bada7a5",
+    "message": "Initial commit"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-08-09T21:44:21Z",
+    "repo": "Soliton",
+    "sha": "1e79c4b",
+    "message": "Kick off"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-08-04T00:09:07Z",
+    "repo": "Soliton",
+    "sha": "ad48aa0",
+    "message": "Initial commit"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-07-15T21:21:55Z",
+    "repo": "Portifolio",
+    "sha": "853f789",
+    "message": "Initial commit"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-07-15T01:24:37Z",
+    "repo": "roadmap",
+    "sha": "e86b3d6",
+    "message": "feat: IDE-style UI with split view, syntax highlighting, multi-track support"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-07-14T02:37:11Z",
+    "repo": "roadmap",
+    "sha": "27ca25a",
+    "message": "ci: fix base path for renamed repo"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-07-14T02:21:06Z",
+    "repo": "roadmap",
+    "sha": "056606a",
+    "message": "ci: add GitHub Pages deploy workflow"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-07-14T02:17:14Z",
+    "repo": "roadmap",
+    "sha": "ce73ce2",
+    "message": "feat: initial project setup - Blazor WASM IDE-style roadmap viewer"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-07-13T21:46:40Z",
+    "repo": "roadmap",
+    "sha": "aaade49",
+    "message": "Initial commit"
+  }
+]

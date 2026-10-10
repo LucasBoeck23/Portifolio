@@ -40,3 +40,96 @@ body {
 		scroll-behavior: auto !important;
 	}
 }
+
+/* =====================================================
+   Local fonts — served from /fonts/ (static/fonts/)
+   Eliminates Google Fonts roundtrips entirely.
+   All files are WOFF2 with latin subset.
+   ===================================================== */
+
+/* Anton */
+@font-face {
+	font-family: 'Anton';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url('/fonts/anton-v27-latin-regular.woff2') format('woff2');
+}
+
+/* Bebas Neue */
+@font-face {
+	font-family: 'Bebas Neue';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url('/fonts/bebas-neue-v16-latin-regular.woff2') format('woff2');
+}
+
+/* Barlow Condensed */
+@font-face {
+	font-family: 'Barlow Condensed';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url('/fonts/barlow-condensed-v13-latin-regular.woff2') format('woff2');
+}
+@font-face {
+	font-family: 'Barlow Condensed';
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url('/fonts/barlow-condensed-v13-latin-700.woff2') format('woff2');
+}
+@font-face {
+	font-family: 'Barlow Condensed';
+	font-style: italic;
+	font-weight: 700;
+	font-display: swap;
+	src: url('/fonts/barlow-condensed-v13-latin-700italic.woff2') format('woff2');
+}
+
+/* Montserrat */
+@font-face {
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 100;
+	font-display: swap;
+	src: url('/fonts/montserrat-v31-latin-100.woff2') format('woff2');
+}
+@font-face {
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 300;
+	font-display: swap;
+	src: url('/fonts/montserrat-v31-latin-300.woff2') format('woff2');
+}
+@font-face {
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url('/fonts/montserrat-v31-latin-regular.woff2') format('woff2');
+}
+@font-face {
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url('/fonts/montserrat-v31-latin-700.woff2') format('woff2');
+}
+
+/* Silkscreen */
+@font-face {
+	font-family: 'Silkscreen';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url('/fonts/silkscreen-v6-latin-regular.woff2') format('woff2');
+}
+@font-face {
+	font-family: 'Silkscreen';
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url('/fonts/silkscreen-v6-latin-700.woff2') format('woff2');
+}
