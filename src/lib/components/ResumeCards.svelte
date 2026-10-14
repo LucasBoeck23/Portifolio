@@ -221,4 +221,68 @@
   .resume-card-wrap.active .resume-subtitle {
     color: #fff;
   }
+
+  /* ===== Mobile + foldable/tablet: static full-width stack ===== */
+  @media (max-width: 900px) {
+    .resume-stack {
+      position: relative;
+      top: auto;
+      left: auto;
+      width: 100%;
+      transform: none;
+      gap: 14px;
+      z-index: 10;
+    }
+
+    .resume-list-tag {
+      font-size: 56px;
+      margin: 0 0 2px 8px;
+    }
+
+    .resume-card {
+      height: 104px;
+    }
+
+    .resume-card-inner {
+      padding: 8px 14px 10px 54px;
+      align-items: flex-start;
+    }
+
+    .resume-title {
+      font-size: 34px;
+    }
+
+    .resume-rank-label {
+      font-size: 20px;
+    }
+
+    .resume-rank-number {
+      font-size: 48px;
+    }
+
+    .resume-badge {
+      width: 46px;
+      height: 58px;
+    }
+
+    .resume-badge-text {
+      font-size: 28px;
+    }
+
+    .resume-subtitle-bar {
+      left: 54px;
+      right: 12px;
+      bottom: 10px;
+      height: 26px;
+      padding: 0 12px;
+    }
+
+    .resume-subtitle {
+      font-size: 18px;
+      letter-spacing: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
 </style>

@@ -14,6 +14,11 @@ body {
 	overflow: hidden;
 }
 
+/* Prevent any horizontal bleed from skewed/absolute art */
+body {
+	overflow-x: hidden;
+}
+
 /* Responsive base scale — shrinks layout on smaller viewports */
 :root {
 	--ui-scale: 1;
@@ -23,12 +28,20 @@ body {
 	:root { --ui-scale: 0.85; }
 }
 
+/* Phones, foldables (unfolded) and small tablets switch to the
+   dedicated stacked mobile layouts (see per-page @media rules)
+   instead of just shrinking, so the scale stays close to 1 and
+   text stays legible across this whole range. */
 @media (max-width: 900px) {
-	:root { --ui-scale: 0.7; }
-}
+	:root { --ui-scale: 0.9; }
 
-@media (max-width: 600px) {
-	:root { --ui-scale: 0.5; }
+	/* Allow pages to grow and scroll vertically on smaller screens */
+	html,
+	body {
+		height: auto;
+		min-height: 100%;
+		overflow-y: auto;
+	}
 }
 
 /* Respect user preference for reduced motion */

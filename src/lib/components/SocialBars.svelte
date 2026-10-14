@@ -42,26 +42,25 @@
 </BarBase>
 
 <style>
+  /* Área do título: ocupa o resto da barra e centraliza ícone + nome.
+     As variáveis (--main-min, --label-size, --pad) vêm do BarBase. */
   .sc-main {
-    flex: 1;
+    flex: 1 1 0;
+    min-width: var(--main-min);
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    gap: 3px;
+    align-items: center;
+    padding: 0 var(--pad);
   }
 
   .sc-main-top {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 0.4em;
   }
 
   .sc-icon {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px;
-    width: 32px;
-    text-align: center;
+    font-size: calc(var(--label-size) * 0.8);
     flex-shrink: 0;
     color: rgba(255, 255, 255, 0.15);
     transition: color 0.2s ease;
@@ -74,8 +73,8 @@
 
   .sc-label {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 28px;
-    letter-spacing: 4px;
+    font-size: var(--label-size);
+    letter-spacing: 0.14em;
     line-height: 1;
     color: rgba(255, 255, 255, 0.85);
     transition: color 0.2s ease;
@@ -86,31 +85,38 @@
     color: #111111;
   }
 
+  /* Stats opcionais: largura fixa em relação à barra. Quando não
+     sobra espaço (celular), o bloco quebra pra 2ª linha da barra
+     e some sozinho — mesma regra pra todas as barras. */
   .sc-stats {
+    flex: 0 0 clamp(120px, 22cqi, 200px);
+    min-width: 0;
     display: flex;
+    justify-content: flex-end;
     align-items: center;
-    gap: 10px;
-    padding-right: 24px;
-    flex-shrink: 0;
+    padding-right: var(--pad);
   }
 
   .sc-stat {
+    min-width: 0;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
   }
 
   .sc-stat-top {
+    min-width: 0;
     display: flex;
     align-items: baseline;
-    gap: 4px;
+    gap: 0.3em;
   }
 
   .sc-stat-tag {
+    flex-shrink: 0;
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 9px;
-    letter-spacing: 1.5px;
-    padding: 1px 4px;
+    font-size: clamp(8px, 1.3cqi, 11px);
+    letter-spacing: 0.15em;
+    padding: 0.1em 0.4em;
     border-width: 1px;
     border-style: solid;
     line-height: 1.4;
@@ -118,12 +124,16 @@
   }
 
   .sc-stat-num {
+    min-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 26px;
+    font-size: clamp(14px, 3.2cqi, 26px);
     font-style: italic;
     line-height: 1;
     color: #ffffff;
-    letter-spacing: 1px;
+    letter-spacing: 0.04em;
     user-select: none;
     transition: color 0.2s ease;
   }

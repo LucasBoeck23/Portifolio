@@ -120,4 +120,36 @@
     from { opacity: 0; transform: translateX(30px); }
     to { opacity: 1; transform: translateX(0); }
   }
+
+  /* ===== Mobile + foldable/tablet: single column, scrollable ===== */
+  @media (max-width: 900px) {
+    .log-page {
+      height: auto;
+      min-height: 100vh;
+      overflow: visible;
+    }
+
+    .log-header {
+      padding: 60px 16px 12px;
+      transform: none;
+      animation: header-in-mobile 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    @keyframes header-in-mobile {
+      from { opacity: 0; transform: translateX(-20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .log-title {
+      font-size: 40px;
+    }
+
+    .log-content {
+      grid-template-columns: 1fr;
+      gap: 16px;
+      padding: 16px 16px 88px;
+      transform: none;
+      overflow: visible;
+    }
+  }
 </style>
