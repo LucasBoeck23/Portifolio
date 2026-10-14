@@ -11,6 +11,11 @@
 
     <!-- Diagonal panel with upper/lower content bars -->
     <div class="reveal-panel">
+      <!-- Cabeçalho só aparece no layout mobile/tablet (as barras ficam escondidas atrás do overlay) -->
+      <div class="reveal-head">
+        <span class="reveal-head-role" style:color={item.role.color}>{item.role.text}</span>
+        <span class="reveal-head-label">{item.label}</span>
+      </div>
       <div class="reveal-upper">
         {#each item.revealContent.upper as line}
           <div class="reveal-line">{line}</div>
@@ -181,5 +186,206 @@
     object-position: bottom right;
     transform: skewX(8deg) scale(1.08);
     transform-origin: bottom right;
+  }
+  /* Cabeçalho escondido no desktop */
+  .reveal-head {
+    display: none;
+  }
+
+  /* =====================================================
+     Mobile + tablet: layout empilhado em "card".
+     Retrato em cima numa moldura inclinada, cabeçalho com
+     escalão + título, e as falas em faixas pretas legíveis
+     (sem rotação de -20deg, que cortava o texto).
+     ===================================================== */
+  @media (max-width: 900px) {
+    .reveal-overlay {
+      position: fixed;
+      inset: 0;
+      transform: none;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      padding: 56px 16px 96px; /* espaço p/ player (topo) e botão voltar (base) */
+      -webkit-overflow-scrolling: touch;
+    }
+    .reveal-dim {
+      position: fixed;
+      background:
+        linear-gradient(160deg, rgba(0, 71, 255, 0.35) 0%, transparent 45%),
+        rgba(20, 24, 32, 0.82);
+    }
+
+    /* ---------- Retrato ---------- */
+    .reveal-portrait-shell {
+      order: 1;
+      position: relative;
+      top: auto;
+      right: auto;
+      flex-shrink: 0;
+      width: 100%;
+      max-width: 520px;
+      height: min(46vh, 420px);
+      margin: 0 auto -28px;
+      overflow: hidden;
+      background: linear-gradient(180deg, #00d0ff 0%, #0047ff 100%);
+      clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+      animation: portrait-in-m 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+    .reveal-portrait-shell::after {
+      /* faixa vermelha diagonal atrás do personagem */
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(115deg, transparent 58%, rgba(215, 13, 44, 0.85) 58%, rgba(215, 13, 44, 0.85) 66%, transparent 66%);
+      z-index: 0;
+    }
+    .reveal-portrait {
+      position: relative;
+      z-index: 1;
+      object-position: bottom center;
+      transform: none;
+    }
+    @keyframes portrait-in-m {
+      0% { opacity: 0; transform: translateX(60px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+
+    /* ---------- Card de conteúdo ---------- */
+    .reveal-panel {
+      order: 2;
+      position: relative;
+      top: auto;
+      left: auto;
+      z-index: 14;
+      width: 100%;
+      max-width: 620px;
+      height: auto;
+      margin: 0 auto;
+      padding: 0 0 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      clip-path: polygon(0 0, 100% 0, calc(100% - 24px) 100%, 0 100%);
+      box-shadow: none;
+      transform: rotate(-2deg);
+      transform-origin: center;
+      animation: reveal-card-in 0.46s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+    .reveal-panel::before {
+      height: 6px;
+    }
+    @keyframes reveal-card-in {
+      0% { opacity: 0; transform: translateX(-80px) rotate(-2deg); }
+      100% { opacity: 1; transform: translateX(0) rotate(-2deg); }
+    }
+
+    .reveal-head {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      padding: 18px 18px 0;
+    }
+    .reveal-head-role {
+      font-family: 'Anton', sans-serif;
+      font-size: 34px;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      transform: rotate(-12deg);
+      -webkit-text-stroke: 1px #111;
+    }
+    .reveal-head-label {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 30px;
+      letter-spacing: 0.1em;
+      line-height: 1;
+      color: #111;
+    }
+
+    .reveal-upper {
+      position: static;
+      width: auto;
+      height: auto;
+      margin: 0 12px 0 0;
+      padding: 16px 28px 16px 18px;
+      clip-path: polygon(0 0, 100% 0, calc(100% - 16px) 100%, 0 100%);
+      align-items: flex-start;
+      text-align: left;
+      gap: 10px;
+    }
+    .reveal-line {
+      font-size: clamp(18px, 4.6vw, 24px);
+      line-height: 1.3;
+      padding-left: 12px;
+      border-left: 3px solid #d70d2c;
+    }
+
+    .reveal-lower {
+      position: static;
+      align-self: flex-end;
+      width: auto;
+      height: auto;
+      min-height: 44px;
+      margin-right: 22px;
+      padding: 10px 34px 10px 20px;
+      clip-path: polygon(12px 0, 100% 0, calc(100% - 12px) 100%, 0 100%);
+      font-size: 20px;
+    }
+  }
+
+  /* Tablet: retrato e card lado a lado quando há largura */
+  @media (min-width: 640px) and (max-width: 900px) {
+    .reveal-overlay {
+      display: grid;
+      grid-template-columns: 1fr 0.8fr;
+      align-items: center;
+      align-content: center;
+      gap: 0;
+      padding: 72px 24px 96px;
+    }
+    .reveal-panel {
+      grid-column: 1;
+      grid-row: 1;
+      max-width: none;
+      margin: 0 -40px 0 0;
+    }
+    .reveal-portrait-shell {
+      grid-column: 2;
+      grid-row: 1;
+      height: min(70vh, 640px);
+      max-width: none;
+      margin: 0;
+    }
+    /* Moldura alta: preenche sem sobrar faixa vazia em cima */
+    .reveal-portrait {
+      object-fit: cover;
+      object-position: top center;
+    }
+  }
+
+  /* Celular deitado: pouca altura, então lado a lado e retrato menor */
+  @media (max-width: 900px) and (orientation: landscape) and (max-height: 560px) {
+    .reveal-overlay {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      align-items: center;
+      padding: 16px 24px 72px;
+    }
+    .reveal-panel {
+      grid-column: 1;
+      grid-row: 1;
+      margin: 0 -24px 0 0;
+    }
+    .reveal-portrait-shell {
+      grid-column: 2;
+      grid-row: 1;
+      height: calc(100vh - 88px);
+      margin: 0;
+    }
+    .reveal-line {
+      font-size: 17px;
+    }
   }
 </style>
