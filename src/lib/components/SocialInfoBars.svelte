@@ -41,23 +41,22 @@
     100% { opacity: 1; transform: translateX(0); }
   }
 
+  /* Lista de links presa à direita, abaixo da nav.
+     Largura: celular ~300px, desktop 34% da tela (máx. 620px). */
   .info-bars-container {
     position: fixed;
-    top: 155px;
+    top: clamp(88px, 15vh, 160px);
     right: 0;
-    left: 65%;
+    width: clamp(min(100% - 24px, 300px), 34vw, 620px);
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: clamp(6px, 1vh, 10px);
     z-index: 50;
-    overflow: visible;
-    transform: scale(var(--ui-scale, 1));
-    transform-origin: top right;
   }
 
   .info-bar-wrap {
     position: relative;
-    height: 46px;
+    height: clamp(38px, 2vw + 30px, 48px);
     background: transparent;
     pointer-events: all;
     cursor: pointer;
@@ -99,9 +98,10 @@
     z-index: 1;
   }
 
+  /* Selo "NEW" encostado do lado de fora, à esquerda da barra */
   .info-bar-new {
     position: absolute;
-    left: -40px;
+    right: 100%;
     bottom: 0;
     height: 65%;
     width: auto;
@@ -111,11 +111,12 @@
 
   .info-bar-text {
     flex: 1;
+    min-width: 0;
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px;
-    letter-spacing: 2px;
+    font-size: clamp(16px, 0.8vw + 13px, 22px);
+    letter-spacing: 0.1em;
     color: #7dd4fc;
-    padding: 0 14px;
+    padding: 0 0.7em;
     user-select: none;
     white-space: nowrap;
     overflow: hidden;

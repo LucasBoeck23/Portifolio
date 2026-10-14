@@ -22,26 +22,29 @@
 </BarBase>
 
 <style>
+  /* Área do título: ocupa o resto da barra e centraliza o texto.
+     As variáveis (--main-min, --label-size) vêm do BarBase e
+     escalam com a largura da barra. */
   .sc-main {
-    flex: 1;
+    flex: 1 1 0;
+    min-width: var(--main-min);
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    gap: 3px;
-    padding-left: 78px;
+    align-items: center;
+    padding: 0 var(--pad);
+    text-align: center;
   }
 
   .sc-main-top {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 0.4em;
   }
 
   .sc-label {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 28px;
-    letter-spacing: 4px;
+    font-size: var(--label-size);
+    letter-spacing: 0.14em;
     line-height: 1;
     color: rgba(255, 255, 255, 0.85);
     transition: color 0.2s ease;

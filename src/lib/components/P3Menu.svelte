@@ -125,7 +125,9 @@
     z-index: 20;
     font-family: 'Anton', sans-serif;
     font-style: italic;
-    font-size: clamp(48px, 8vw, 108px);
+    /* Mínimo de 48px, exceto em telas baixas (< ~800px de altura),
+       onde o mínimo cai junto com a altura (36px no iPhone SE). */
+    font-size: clamp(min(48px, 9dvh - 24px), 8vw, 108px);
     line-height: 0.88;
     letter-spacing: 2px;
     color: rgba(10, 10, 14, 0.64);
@@ -152,7 +154,16 @@
     flex-direction: column;
     align-items: center;
     pointer-events: all;
-    transform: scale(var(--ui-scale, 1));
+
+    /* Encolhe o menu só em celulares baixos (ex.: iPhone SE, 667px).
+       tan(atan2(a, b)) é o jeito do CSS calcular "a / b" como número.
+       --fit-h: 1 a partir de ~780px de altura, ~0.75 em 667px.
+       --fit-w: telas com mais de ~600px de largura nunca encolhem,
+                então notebooks baixos e desktop ficam como estão. */
+    --fit-h: tan(atan2(100dvh - 328px, 452px));
+    --fit-w: tan(atan2(100vw - 500px, 100px));
+    --fit: clamp(0.5, max(var(--fit-h), var(--fit-w)), 1);
+    transform: scale(calc(var(--ui-scale, 1) * var(--fit)));
     transform-origin: center center;
   }
 

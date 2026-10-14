@@ -52,4 +52,17 @@
   .resume-page.circle-revealed .circle-bg {
     transform: scale(1);
   }
+
+  /* ===== Mobile + foldable/tablet: stack the two panels vertically ===== */
+  @media (max-width: 900px) {
+    .resume-page {
+      height: auto;
+      min-height: 100vh;
+      overflow: visible;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      padding: 70px 14px 88px;
+    }
+  }
 </style>
