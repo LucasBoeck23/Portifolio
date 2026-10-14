@@ -28,3 +28,6 @@ vite.config.ts.timestamp-*
 
 # Video backups (large files)
 src/assets/videos/backup/
+
+# Screenshots de checagem visual
+visual-snapshots/

@@ -12,16 +12,21 @@
   }
 </script>
 
+{#key category.id}
 <div class="resume-detail-panel">
   <div class="resume-detail-top">
     <div class="resume-detail-top-index">{category.badge}</div>
-    <div class="resume-detail-top-title">{category.title}</div>
+    <div class="resume-detail-top-title">
+      {category.title}
+      <span class="resume-detail-top-sub">{category.subtitle}</span>
+    </div>
     <div class="resume-detail-top-progress">{category.rows.length}</div>
+    <div class="resume-detail-top-rank">RANK <b>{category.rank}</b></div>
   </div>
 
   <div class="resume-detail-list">
-    {#each category.rows as row}
-      <div class="resume-detail-row">
+    {#each category.rows as row, i}
+      <div class="resume-detail-row" style:--status={getStatusColor(row.status)} style:--i={i}>
         <div class="resume-detail-row-index">{row.index}</div>
         <div class="resume-detail-row-title">{row.title}</div>
         <div class="resume-detail-status" style:background={getStatusColor(row.status)}>
@@ -40,6 +45,7 @@
     </div>
   </div>
 </div>
+{/key}
 
 <style>
   .resume-detail-panel {
@@ -187,7 +193,16 @@
     color: #edfaff;
   }
 
-  /* ===== Mobile + foldable/tablet: static full-width panel ===== */
+  /* Extras do cabeçalho: só aparecem no mobile/tablet */
+  .resume-detail-top-sub,
+  .resume-detail-top-rank {
+    display: none;
+  }
+  /* =====================================================
+     Mobile + tablet: painel fluido, cabeçalho com subtítulo
+     e rank, itens com a cor do status na lateral e texto
+     de apoio em fonte legível.
+     ===================================================== */
   @media (max-width: 900px) {
     .resume-detail-panel {
       position: relative;
@@ -196,62 +211,147 @@
       width: 100%;
       max-height: none;
       transform: none;
-      padding: 18px 16px 20px;
+      padding: 16px 14px 18px;
       overflow: visible;
+      clip-path: polygon(0 0, 100% 0, calc(100% - 14px) 100%, 0 100%);
+      animation: rd-in 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
     }
-
+    @keyframes rd-in {
+      from { opacity: 0; transform: translateX(24px); }
+      to { opacity: 1; transform: none; }
+    }
     .resume-detail-top {
-      grid-template-columns: 54px 1fr auto;
-      gap: 10px;
-      min-height: 72px;
-      padding: 0 14px;
+      grid-template-columns: auto 1fr auto;
+      gap: 12px;
+      min-height: 76px;
+      padding: 10px 22px 10px 12px;
+      box-shadow: none;
     }
-
     .resume-detail-top-index {
-      font-size: 34px;
-    }
-
-    .resume-detail-top-title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 46px;
+      height: 52px;
+      padding: 0 8px;
       font-size: 30px;
+      color: #85f4ff;
+      background: #08153f;
+      clip-path: polygon(12% 0, 100% 0, 88% 100%, 0 100%);
     }
-
+    .resume-detail-top-title {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: clamp(26px, 7.4vw, 36px);
+      line-height: 0.95;
+    }
+    .resume-detail-top-sub {
+      display: block;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(8, 21, 63, 0.7);
+    }
     .resume-detail-top-progress {
-      font-size: 32px;
+      display: none;
     }
-
+    .resume-detail-top-rank {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 14px;
+      letter-spacing: 2px;
+      line-height: 1;
+    }
+    .resume-detail-top-rank b {
+      font-family: 'Anton', sans-serif;
+      font-weight: 400;
+      font-size: 40px;
+      line-height: 0.95;
+      letter-spacing: 0;
+    }
+    .resume-detail-list {
+      gap: 8px;
+      margin-top: 16px;
+    }
     .resume-detail-row {
       grid-template-columns: 34px 1fr;
       grid-template-areas:
         'idx title'
-        'status status';
+        'idx status';
+      align-items: start;
       gap: 6px 12px;
       min-height: 0;
-      padding: 10px 12px;
+      padding: 12px 18px 12px 12px;
+      border-left: 4px solid var(--status, #85f4ff);
+      clip-path: polygon(0 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+      opacity: 0;
+      animation: rd-row-in 0.3s ease forwards;
+      animation-delay: calc(var(--i, 0) * 45ms + 80ms);
     }
-
+    @keyframes rd-row-in {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: none; }
+    }
+    .resume-detail-row:hover {
+      transform: none;
+    }
     .resume-detail-row-index {
       grid-area: idx;
-      font-size: 22px;
+      font-size: 24px;
+      line-height: 1;
+      padding-top: 2px;
     }
-
     .resume-detail-row-title {
       grid-area: title;
       font-size: 19px;
+      line-height: 1.15;
     }
-
     .resume-detail-status {
       grid-area: status;
       justify-self: start;
-      font-size: 18px;
-      padding: 5px 10px;
+      font-size: 15px;
+      letter-spacing: 1px;
+      padding: 4px 12px 3px 8px;
+      color: #041238;
     }
-
+    .resume-detail-bottom {
+      margin-top: 16px;
+      padding: 14px 18px 16px 14px;
+    }
     .resume-detail-bottom-title {
-      font-size: 26px;
+      font-size: 22px;
+      margin-bottom: 10px;
     }
-
+    .resume-detail-bullets {
+      gap: 8px;
+    }
     .resume-detail-bullet {
-      font-size: 18px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 17px;
+      line-height: 1.3;
+      color: rgba(237, 250, 255, 0.85);
+    }
+  }
+  /* Tablet: status volta pra direita do título */
+  @media (min-width: 640px) and (max-width: 900px) {
+    .resume-detail-panel {
+      padding: 20px 20px 22px;
+    }
+    .resume-detail-row {
+      grid-template-columns: 40px 1fr auto;
+      grid-template-areas: 'idx title status';
+      align-items: center;
+    }
+    .resume-detail-status {
+      justify-self: end;
+    }
+    .resume-detail-row-title {
+      font-size: 21px;
     }
   }
 </style>

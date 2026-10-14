@@ -14,6 +14,8 @@
 
   let calendarDays = $derived(buildCalendar(viewDate));
   let monthNum = $derived(viewDate.getMonth() + 1);
+  const MONTHS = ['JANEIRO', 'FEVEREIRO', 'MARÇO', 'ABRIL', 'MAIO', 'JUNHO', 'JULHO', 'AGOSTO', 'SETEMBRO', 'OUTUBRO', 'NOVEMBRO', 'DEZEMBRO'];
+  let activeDaysInMonth = $derived(calendarDays.filter((d) => d && activities.has(d)).length);
   let yearNum = $derived(viewDate.getFullYear());
 
   const today = getLocalToday();
@@ -69,9 +71,14 @@
 
   <!-- Month nav: arrows + big month number -->
   <div class="cal-month-row">
-    <button class="cal-arrow left" onclick={prevMonth}>◀</button>
+    <button class="cal-arrow left" onclick={prevMonth} aria-label="Mês anterior">◀</button>
     <div class="cal-month-num">{monthNum}</div>
-    <button class="cal-arrow right" onclick={nextMonth}>▶</button>
+    <!-- Nome do mês + resumo: só no mobile/tablet -->
+    <div class="cal-month-meta">
+      <span class="cal-month-name">{MONTHS[monthNum - 1]}</span>
+      <span class="cal-month-count">{activeDaysInMonth} dia{activeDaysInMonth !== 1 ? 's' : ''} com atividade</span>
+    </div>
+    <button class="cal-arrow right" onclick={nextMonth} aria-label="Próximo mês">▶</button>
   </div>
 
   <!-- Weekday headers -->
@@ -326,5 +333,150 @@
     border-radius: 50%;
     border: 1.5px solid rgba(196, 0, 26, 0.7);
     pointer-events: none;
+  }
+  .cal-month-meta {
+    display: none;
+  }
+
+  /* =====================================================
+     Mobile + tablet: calendário compacto.
+     Mês por extenso + resumo, setas com área de toque de
+     44px, dias menores e atividade marcada por um ponto
+     (mais fácil de ver que o anel fino).
+     ===================================================== */
+  @media (max-width: 900px) {
+    .p3-calendar {
+      max-width: none;
+      padding: 14px 14px 16px;
+      border-radius: 0;
+      background: linear-gradient(180deg, rgba(5, 10, 40, 0.94) 0%, rgba(8, 16, 60, 0.9) 100%);
+      clip-path: polygon(0 0, 100% 0, calc(100% - 14px) 100%, 0 100%);
+      border-top: 4px solid #3ce2ff;
+    }
+    .cal-top {
+      margin-bottom: 6px;
+    }
+    .cal-label {
+      font-size: 11px;
+      letter-spacing: 3px;
+    }
+    .cal-month-row {
+      display: grid;
+      grid-template-columns: auto 1fr auto auto;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .cal-month-num {
+      order: 0;
+      font-size: 64px;
+      letter-spacing: -2px;
+      min-width: 1.2em;
+    }
+    .cal-month-meta {
+      order: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 0;
+    }
+    .cal-month-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      letter-spacing: 2px;
+      line-height: 1;
+      color: #fff;
+    }
+    .cal-month-count {
+      align-self: flex-start;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      color: #0a0e2a;
+      background: #3ce2ff;
+      padding: 1px 10px 1px 6px;
+      clip-path: polygon(0 0, 100% 0, calc(100% - 5px) 100%, 0 100%);
+    }
+    .cal-arrow {
+      order: 2;
+      width: 44px;
+      height: 44px;
+      font-size: 16px;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .cal-arrow.right {
+      order: 3;
+    }
+    .cal-arrow:active {
+      background: rgba(196, 0, 26, 0.7);
+    }
+    .cal-weekday {
+      font-size: 10px;
+      padding: 2px 0 6px;
+    }
+    .cal-grid {
+      gap: 4px 2px;
+    }
+    .cal-day {
+      aspect-ratio: auto;
+      height: 46px;
+      flex-direction: column;
+      gap: 4px;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .cal-day:not(.empty):hover {
+      transform: none;
+    }
+    .day-number {
+      font-size: 18px;
+    }
+    /* Ponto de atividade no lugar do anel */
+    .activity-ring {
+      position: static;
+      inset: auto;
+      width: 6px;
+      height: 6px;
+      border: none;
+      background: #3ce2ff;
+      box-shadow: 0 0 6px rgba(60, 226, 255, 0.8);
+    }
+    .cal-day.active {
+      background: rgba(60, 226, 255, 0.08);
+    }
+    /* Dia selecionado: bloco sólido inclinado no estilo P3 */
+    .cal-day.selected {
+      transform: none;
+      background: #c4001a;
+      clip-path: polygon(8% 0, 100% 0, 92% 100%, 0 100%);
+    }
+    .cal-day.selected::after {
+      display: none;
+    }
+    .cal-day.selected .day-number {
+      color: #fff;
+      font-weight: 700;
+    }
+    .cal-day.selected .activity-ring {
+      background: #fff;
+      box-shadow: none;
+    }
+    .today-label {
+      top: 1px;
+      font-size: 7px;
+    }
+    .today-triangle {
+      display: none;
+    }
+  }
+
+  /* Tablet: um pouco mais de respiro */
+  @media (min-width: 640px) and (max-width: 900px) {
+    .cal-day {
+      height: 52px;
+    }
+    .day-number {
+      font-size: 20px;
+    }
   }
 </style>

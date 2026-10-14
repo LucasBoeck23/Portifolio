@@ -20,7 +20,17 @@
 
 <div class="resume-page" class:circle-revealed={circleRevealed}>
   <div class="circle-bg"></div>
-  <ResumeCards active={nav.active} mounted={nav.mounted} onhover={(i) => (nav.active = i)} />
+  <!-- Cabeçalho só no mobile/tablet (no desktop o "LISTA" dos cards cumpre esse papel) -->
+  <header class="resume-mobile-head" class:mounted={nav.mounted}>
+    <span class="resume-mobile-kicker">LISTA</span>
+    <h1 class="resume-mobile-title">CURRÍCULO</h1>
+  </header>
+  <ResumeCards
+    active={nav.active}
+    mounted={nav.mounted}
+    onhover={(i) => (nav.active = i)}
+    onselect={(i) => (nav.active = i)}
+  />
   <ResumeDetail category={RESUME_CATEGORIES[nav.active] ?? RESUME_CATEGORIES[0]} />
 </div>
 <BackButton />
@@ -53,7 +63,10 @@
     transform: scale(1);
   }
 
-  /* ===== Mobile + foldable/tablet: stack the two panels vertically ===== */
+  .resume-mobile-head {
+    display: none;
+  }
+  /* ===== Mobile + foldable/tablet: título, abas fixas e detalhe ===== */
   @media (max-width: 900px) {
     .resume-page {
       height: auto;
@@ -61,8 +74,47 @@
       overflow: visible;
       display: flex;
       flex-direction: column;
-      gap: 18px;
-      padding: 70px 14px 88px;
+      gap: 16px;
+      padding: 48px 14px 96px;
+    }
+    .resume-mobile-head {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      padding: 0 4px;
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+    .resume-mobile-head.mounted {
+      opacity: 1;
+      transform: none;
+    }
+    .resume-mobile-kicker {
+      align-self: flex-start;
+      margin-bottom: 6px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 18px;
+      letter-spacing: 4px;
+      color: #041238;
+      background: #85f4ff;
+      padding: 2px 14px 0 10px;
+      clip-path: polygon(0 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+    }
+    .resume-mobile-title {
+      font-family: 'Anton', sans-serif;
+      font-weight: 400;
+      font-size: clamp(48px, 14vw, 84px);
+      line-height: 0.92;
+      letter-spacing: 1px;
+      color: #f6fbff;
+      text-shadow: 4px 4px 0 rgba(4, 18, 56, 0.55);
+    }
+  }
+  @media (min-width: 640px) and (max-width: 900px) {
+    .resume-page {
+      padding: 56px 24px 104px;
     }
   }
 </style>

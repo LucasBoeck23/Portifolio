@@ -128,28 +128,53 @@
       min-height: 100vh;
       overflow: visible;
     }
-
+    /* Vídeo mais escuro embaixo pra dar contraste com o conteúdo */
+    .log-page::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(180deg, rgba(0, 8, 30, 0.15) 0%, rgba(0, 8, 30, 0.65) 55%, rgba(0, 8, 30, 0.85) 100%);
+      pointer-events: none;
+    }
     .log-header {
-      padding: 60px 16px 12px;
+      margin: 48px 40px 0 0;
+      padding: 14px 32px 12px 16px;
+      background: rgba(5, 10, 40, 0.92);
+      border-left: 6px solid #c4001a;
+      clip-path: polygon(0 0, 100% 0, calc(100% - 22px) 100%, 0 100%);
       transform: none;
       animation: header-in-mobile 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
     }
-
     @keyframes header-in-mobile {
       from { opacity: 0; transform: translateX(-20px); }
       to { opacity: 1; transform: translateX(0); }
     }
-
     .log-title {
-      font-size: 40px;
+      font-size: clamp(36px, 11vw, 60px);
+      text-shadow: 3px 3px 0 rgba(196, 0, 26, 0.75);
     }
-
+    .log-subtitle {
+      font-size: 13px;
+      letter-spacing: 1.5px;
+      color: #3ce2ff;
+    }
     .log-content {
       grid-template-columns: 1fr;
-      gap: 16px;
-      padding: 16px 16px 88px;
+      gap: 14px;
+      padding: 14px 14px 96px;
       transform: none;
       overflow: visible;
+    }
+  }
+  @media (min-width: 640px) and (max-width: 900px) {
+    .log-header {
+      margin: 56px 30% 0 0;
+      padding: 18px 36px 16px 24px;
+    }
+    .log-content {
+      padding: 18px 24px 104px;
+      gap: 18px;
     }
   }
 </style>

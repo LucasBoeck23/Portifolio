@@ -73,6 +73,13 @@
       {/each}
     </div>
   </div>
+{:else}
+  <!-- Estado vazio: antes o painel simplesmente sumia -->
+  <div class="detail-empty">
+    <span class="detail-empty-tag">SEM REGISTROS</span>
+    <p class="detail-empty-text">Nenhuma atividade no GitHub neste dia.</p>
+    <p class="detail-empty-hint">Os dias com atividade aparecem marcados no calendário.</p>
+  </div>
 {/if}
 
 <style>
@@ -257,11 +264,117 @@
     text-overflow: ellipsis;
   }
 
+  /* Estado vazio */
+  .detail-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 20px 22px 22px;
+    background: rgba(5, 10, 40, 0.9);
+    border-left: 4px solid #c4001a;
+    clip-path: polygon(0 0, 100% 0, calc(100% - 16px) 100%, 0 100%);
+  }
+  .detail-empty-tag {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 16px;
+    letter-spacing: 3px;
+    color: #fff;
+    background: #c4001a;
+    padding: 2px 12px 0 8px;
+    clip-path: polygon(0 0, 100% 0, calc(100% - 6px) 100%, 0 100%);
+  }
+  .detail-empty-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    letter-spacing: 1px;
+    line-height: 1.05;
+    color: #fff;
+  }
+  .detail-empty-hint {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.6);
+  }
   .commit-line.more {
     font-family: 'Barlow Condensed', sans-serif;
     font-size: 12px;
     color: rgba(255, 255, 255, 0.35);
     font-style: italic;
     padding-left: 4px;
+  }
+
+  /* =====================================================
+     Mobile + tablet: painel cresce com o conteúdo (a página
+     rola), cabeçalho empilhado e textos maiores pra toque.
+     ===================================================== */
+  @media (max-width: 900px) {
+    .detail-panel {
+      max-height: none;
+      overflow: visible;
+      clip-path: polygon(0 0, 100% 0, calc(100% - 14px) 100%, 0 100%);
+    }
+    .detail-top {
+      flex-direction: column;
+      gap: 10px;
+      padding: 14px 24px 14px 16px;
+      clip-path: polygon(0 0, 100% 0, calc(100% - 14px) 100%, 0 100%);
+    }
+    .detail-date {
+      font-size: 30px;
+    }
+    .badge {
+      font-size: 13px;
+      padding: 3px 10px 3px 8px;
+    }
+    .repo-chip {
+      font-size: 13px;
+      background: rgba(10, 14, 42, 0.85);
+      color: #7af0ff;
+    }
+    .event-list {
+      gap: 8px;
+      padding: 12px 10px 16px 6px;
+    }
+    .event-index {
+      width: 30px;
+      align-items: flex-start;
+      padding-top: 12px;
+      font-size: 17px;
+    }
+    .event-bar {
+      background: rgba(10, 18, 60, 0.75);
+      padding: 10px 18px 10px 12px;
+    }
+    .event-bar-header {
+      flex-wrap: wrap;
+      gap: 2px 10px;
+    }
+    .event-type {
+      font-size: 16px;
+    }
+    .commit-line {
+      align-items: flex-start;
+    }
+    .commit-sha {
+      margin-top: 2px;
+    }
+    /* No celular a mensagem quebra em até 2 linhas em vez de cortar */
+    .commit-msg {
+      font-size: 15px;
+      line-height: 1.25;
+      color: rgba(255, 255, 255, 0.8);
+      white-space: normal;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+    .detail-empty {
+      padding: 16px 22px 18px 16px;
+    }
+    .detail-empty-text {
+      font-size: 24px;
+    }
   }
 </style>
