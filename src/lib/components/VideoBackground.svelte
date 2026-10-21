@@ -2,7 +2,7 @@
   let { src, fallback }: { src: string; fallback?: string } = $props();
 </script>
 
-<video loop muted playsinline autoplay preload="auto" class="video-bg">
+<video loop muted playsinline autoplay preload="auto" fetchpriority="high" class="video-bg">
   <source {src} type="video/webm" />
   {#if fallback}
     <source src={fallback} type="video/mp4" />

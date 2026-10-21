@@ -68,6 +68,14 @@
     if (isPlaying) {
       activeAudio.pause();
     } else {
+      // Carrega o áudio sob demanda: na primeira vez que o usuário dá play,
+      // o src ainda não foi atribuído (deixamos assim pra não competir com o
+      // vídeo no load). Setamos aqui, só agora.
+      if (!activeAudio.src) {
+        activeAudio.preload = 'auto';
+        activeAudio.src = trackSrc(currentTrack);
+        activeAudio.dataset.track = String(currentTrack);
+      }
       activeAudio.play().catch(() => {});
       // Only start preloading next track after user first interacts
       preloadNext();
@@ -184,10 +192,9 @@
     setupAudioEvents(activeAudio);
     setupAudioEvents(preloadAudio);
 
-    // Set preload BEFORE src to avoid a double request.
-    // 'metadata' fetches only enough to get duration without downloading audio data.
-    activeAudio.preload = 'metadata';
-    activeAudio.src = trackSrc(0);
+    // NÃO carrega nenhum áudio no load da página: isso competia com o vídeo
+    // de fundo (prioridade) e as imagens. O src só é atribuído quando o
+    // usuário clica em play (togglePlay), mantendo a banda livre pro vídeo.
     activeAudio.dataset.track = '0';
 
     return () => {

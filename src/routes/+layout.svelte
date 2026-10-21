@@ -25,6 +25,14 @@
   });
 </script>
 
+<svelte:head>
+  {#if showMainBg}
+    <!-- Dispara o download do vídeo de fundo o quanto antes, com prioridade
+         alta, sem esperar o <video> ser montado na hidratação. -->
+    <link rel="preload" as="video" href={bgLoop} type="video/webm" fetchpriority="high" />
+  {/if}
+</svelte:head>
+
 {#if showMainBg}
   <VideoBackground src={bgLoop} />
 {/if}
