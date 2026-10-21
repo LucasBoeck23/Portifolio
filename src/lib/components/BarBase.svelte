@@ -37,7 +37,7 @@
         <div class="sc-bar-shade"></div>
         <div class="sc-bar-content">
           <div class="sc-role" style:color={item.role.color ?? '#ffffff'}>{item.role.text}</div>
-          <img class="sc-char" src={CHARS[i]} alt="" fetchpriority="high" decoding="async" />
+          <img class="sc-char" src={CHARS[i % CHARS.length]} alt="" fetchpriority="high" decoding="async" />
           {@render content({ item, index: i, isActive })}
         </div>
       </div>

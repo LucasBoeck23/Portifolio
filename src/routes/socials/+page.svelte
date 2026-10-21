@@ -21,7 +21,7 @@
     if (platform.href.startsWith('mailto:')) {
       window.location.href = platform.href;
     } else if (platform.href.startsWith('http')) {
-      window.open(platform.href, '_blank');
+      window.open(platform.href, '_blank', 'noopener');
     } else {
       navigator.clipboard.writeText(platform.handle);
       showToast(`"${platform.handle}" copiado!`);
@@ -37,6 +37,10 @@
   let activePlatform = $derived(SOCIAL_PLATFORMS[nav.active] ?? SOCIAL_PLATFORMS[0]);
 </script>
 
+<svelte:head>
+  <title>Contato · Lucas Boeck</title>
+</svelte:head>
+
 <SocialBars
   active={nav.active}
   mounted={nav.mounted}
@@ -50,10 +54,7 @@
   focused={true}
   onhover={(i) => (activeInfoBar = i)}
   onleave={() => (activeInfoBar = -1)}
-  onclick={(i) => {
-    const bar = activePlatform.infoBars[i];
-    if (bar) window.open('https://' + bar.link, '_blank');
-  }}
+  onclick={() => handlePlatformClick(nav.active >= 0 ? nav.active : 0)}
 />
 <BackButton />
 

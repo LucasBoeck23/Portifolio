@@ -41,8 +41,8 @@
 
 <div class="p3-overlay">
   <div class="p3-name-tag">
-    <span class="p3-name-first">Portifolio</span>
-    <span>do Boeck</span>
+    <span class="p3-name-first">Lucas Boeck</span>
+    <span class="p3-name-role">Dev Full Stack</span>
   </div>
 
 
@@ -138,10 +138,22 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    /* Contorno branco por fora das letras: mantém o nome legível
+       quando passa por cima das partes pretas do vídeo de fundo */
+    -webkit-text-stroke: 0.09em #fff;
+    paint-order: stroke fill;
   }
 
   .p3-name-first {
-    color: rgba(0, 0, 0, 0.86);
+    color: #111;
+  }
+
+  /* Cargo menor que o nome, pra não invadir o menu */
+  .p3-name-role {
+    color: #3a3a44;
+    font-size: 0.62em;
+    letter-spacing: 3px;
+    margin-top: 0.12em;
   }
 
 

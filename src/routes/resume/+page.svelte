@@ -16,7 +16,22 @@
     const timer = setTimeout(() => (circleRevealed = true), 100);
     return () => clearTimeout(timer);
   });
+
+  // Permite abrir direto numa seção: /resume?secao=projetos
+  // (lido no cliente porque a página é pré-renderizada)
+  $effect(() => {
+    const secao = new URLSearchParams(location.search).get('secao');
+    if (!secao) return;
+    const idx = RESUME_CATEGORIES.findIndex(
+      (c) => c.title.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase() === secao.toLowerCase()
+    );
+    if (idx >= 0) nav.active = idx;
+  });
 </script>
+
+<svelte:head>
+  <title>Currículo · Lucas Boeck</title>
+</svelte:head>
 
 <div class="resume-page" class:circle-revealed={circleRevealed}>
   <div class="circle-bg"></div>

@@ -10,7 +10,11 @@
 
   const WEEKDAYS = ['DOM', 'SEG', 'TER', 'QUA', 'QUI', 'SEX', 'SÁB'];
 
-  let viewDate = $state(new Date());
+  // Começa no mês do dia selecionado (pode não ser o mês atual)
+  function initialViewDate(): Date {
+    return selectedDate ? new Date(selectedDate + 'T12:00:00') : new Date();
+  }
+  let viewDate = $state(initialViewDate());
 
   let calendarDays = $derived(buildCalendar(viewDate));
   let monthNum = $derived(viewDate.getMonth() + 1);
@@ -65,7 +69,7 @@
 <div class="p3-calendar">
   <!-- Header: CALENDAR + year -->
   <div class="cal-top">
-    <span class="cal-label">CALENDAR</span>
+    <span class="cal-label">CALENDÁRIO</span>
     <span class="cal-year">{yearNum}</span>
   </div>
 

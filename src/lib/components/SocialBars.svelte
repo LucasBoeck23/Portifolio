@@ -15,7 +15,6 @@
   {#snippet content({ item })}
     <div class="sc-main">
       <div class="sc-main-top">
-        <span class="sc-icon">{item.icon}</span>
         <span class="sc-label">{item.label}</span>
       </div>
     </div>
@@ -57,18 +56,6 @@
     display: flex;
     align-items: center;
     gap: 0.4em;
-  }
-
-  .sc-icon {
-    font-size: calc(var(--label-size) * 0.8);
-    flex-shrink: 0;
-    color: rgba(255, 255, 255, 0.15);
-    transition: color 0.2s ease;
-    user-select: none;
-  }
-
-  :global(.sc-bar-outer.active) .sc-icon {
-    color: rgba(255, 255, 255, 0.25);
   }
 
   .sc-label {

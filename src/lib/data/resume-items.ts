@@ -146,7 +146,7 @@ export const RESUME_CATEGORIES: ResumeCategory[] = [
       },
       {
         index: '04',
-        title: 'Roadmap C# / .NET',
+        title: 'Roadmap de estudos',
         status: 'No ar',
         tone: 'green',
         detail: 'Roadmap de estudos interativo com interface no estilo de uma IDE',

@@ -14,6 +14,10 @@
   });
 </script>
 
+<svelte:head>
+  <title>Sobre mim · Lucas Boeck</title>
+</svelte:head>
+
 <AboutBars
   active={nav.active}
   mounted={nav.mounted}

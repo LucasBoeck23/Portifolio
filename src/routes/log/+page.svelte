@@ -6,10 +6,24 @@
   import trainBg from '$assets/videos/bg-log.webm';
 
   const activities = loadActivity();
-  let selectedDate = $state(getLocalToday());
+
+  // Abre em hoje se houver atividade; senão, no último dia com atividade
+  // (evita a primeira impressão de "SEM REGISTROS").
+  const today = getLocalToday();
+  const activeDates = [...activities.keys()].sort();
+  const latestActive = activeDates.filter((d) => d <= today).at(-1);
+  let selectedDate = $state(activities.has(today) || !latestActive ? today : latestActive);
 
   let selectedDay = $derived(activities.get(selectedDate) ?? null);
+
+  // Resumo do período coberto pelos dados
+  const totalCommits = [...activities.values()].reduce((sum, d) => sum + d.commitCount, 0);
+  const totalRepos = new Set([...activities.values()].flatMap((d) => d.repos)).size;
 </script>
+
+<svelte:head>
+  <title>Diário de Bordo · Lucas Boeck</title>
+</svelte:head>
 
 <div class="log-page">
   <video class="log-bg-video" autoplay loop muted playsinline preload="auto">
@@ -18,7 +32,12 @@
 
   <div class="log-header">
     <div class="log-title">DIÁRIO DE BORDO</div>
-    <div class="log-subtitle">Registro de atividades no GitHub</div>
+    <div class="log-subtitle">Atividade em repositórios públicos do GitHub</div>
+    {#if totalCommits > 0}
+      <div class="log-summary">
+        {totalCommits} commit{totalCommits !== 1 ? 's' : ''} em {totalRepos} repositório{totalRepos !== 1 ? 's' : ''} nos últimos meses
+      </div>
+    {/if}
   </div>
 
   <div class="log-content">
@@ -83,6 +102,14 @@
     letter-spacing: 2px;
     margin-top: 4px;
     text-transform: uppercase;
+  }
+
+  .log-summary {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 0.5px;
+    margin-top: 2px;
   }
 
   .log-content {

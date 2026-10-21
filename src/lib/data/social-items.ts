@@ -1,7 +1,3 @@
-import char1 from '$assets/images/char1.webp';
-import char2 from '$assets/images/char2.webp';
-import char3 from '$assets/images/char3.webp';
-
 export interface SocialStat {
   tag: string;
   value: string;
@@ -18,10 +14,10 @@ export interface SocialPlatform {
   id: string;
   label: string;
   handle: string;
+  /** http(s) abre em nova aba, mailto: abre o cliente de e-mail, clipboard: copia o handle */
   href: string;
-  icon: string;
-  character: string;
   role: { text: string; color: string };
+  /** Ação que o clique executa, exibida na barra */
   stats: SocialStat[];
   infoBars: SocialInfoBar[];
 }
@@ -30,46 +26,28 @@ export const SOCIAL_PLATFORMS: SocialPlatform[] = [
   {
     id: 'linkedin',
     label: 'LINKEDIN',
-    handle: '@lucas-boeck',
+    handle: 'lucas-boeck',
     href: 'https://www.linkedin.com/in/lucas-boeck/',
-    icon: '💼',
-    character: char1,
     role: { text: 'LÍDER', color: '#e8c100' },
-    stats: [
-      { tag: 'CON', value: '500+', color: '#0a66c2' },
-    ],
-    infoBars: [
-      { link: 'linkedin.com/in/lucas-boeck', count: '-', isNew: false },
-    ],
+    stats: [{ tag: 'ABRIR', value: 'Ver perfil', color: '#0a66c2' }],
+    infoBars: [{ link: 'linkedin.com/in/lucas-boeck', count: '-', isNew: false }],
   },
   {
     id: 'email',
-    label: 'EMAIL',
+    label: 'E-MAIL',
     handle: 'boecklucas23@gmail.com',
     href: 'mailto:boecklucas23@gmail.com',
-    icon: '📧',
-    character: char2,
     role: { text: 'EQUIPE', color: '#4a8fff' },
-    stats: [
-      { tag: 'TIP', value: 'Gmail', color: '#ea4335' },
-    ],
-    infoBars: [
-      { link: 'boecklucas23@gmail.com', count: '-', isNew: false },
-    ],
+    stats: [{ tag: 'MAIL', value: 'Enviar', color: '#ea4335' }],
+    infoBars: [{ link: 'boecklucas23@gmail.com', count: '-', isNew: false }],
   },
   {
-    id: 'discord',
-    label: 'DISCORD',
-    handle: 'boeck_lucas',
-    href: 'clipboard:boeck_lucas',
-    icon: '🎮',
-    character: char3,
+    id: 'github',
+    label: 'GITHUB',
+    handle: 'LucasBoeck23',
+    href: 'https://github.com/LucasBoeck23',
     role: { text: 'EQUIPE', color: '#4a8fff' },
-    stats: [
-      { tag: 'USER', value: 'boeck_lucas', color: '#5865f2' },
-    ],
-    infoBars: [
-      { link: 'discord: boeck_lucas', count: '-', isNew: false },
-    ],
+    stats: [{ tag: 'ABRIR', value: 'Ver código', color: '#8b949e' }],
+    infoBars: [{ link: 'github.com/LucasBoeck23', count: '-', isNew: false }],
   },
 ];
