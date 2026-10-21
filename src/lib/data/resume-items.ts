@@ -92,7 +92,7 @@ export const RESUME_CATEGORIES: ResumeCategory[] = [
         title: 'Mobile: Flutter / Dart / React Native',
         status: 'Projetos',
         tone: 'yellow',
-        detail: 'Financeiro Mobile, Server-Driven UI em Flutter e app final da residência',
+        detail: 'Financeiro Mobile e app final da residência',
       },
       {
         index: '07',
@@ -130,14 +130,6 @@ export const RESUME_CATEGORIES: ResumeCategory[] = [
       },
       {
         index: '02',
-        title: 'Server-Driven UI em Flutter',
-        status: 'Em desenvolvimento',
-        tone: 'yellow',
-        detail: 'Front-end em Flutter que monta as telas a partir de definições enviadas pelo servidor',
-        link: `${GH}/Flutter-Core-FrontEnd`,
-      },
-      {
-        index: '03',
         title: 'Lola',
         status: 'Em desenvolvimento',
         tone: 'yellow',
@@ -145,7 +137,7 @@ export const RESUME_CATEGORIES: ResumeCategory[] = [
         link: `${GH}/Projeto-Lola`,
       },
       {
-        index: '04',
+        index: '03',
         title: 'Soliton',
         status: 'Em desenvolvimento',
         tone: 'yellow',
@@ -153,7 +145,7 @@ export const RESUME_CATEGORIES: ResumeCategory[] = [
         link: `${GH}/Soliton`,
       },
       {
-        index: '05',
+        index: '04',
         title: 'Roadmap C# / .NET',
         status: 'No ar',
         tone: 'green',
@@ -161,7 +153,7 @@ export const RESUME_CATEGORIES: ResumeCategory[] = [
         link: 'https://lucasboeck23.github.io/roadmap/',
       },
       {
-        index: '06',
+        index: '05',
         title: 'Este portfólio',
         status: 'No ar',
         tone: 'green',
@@ -169,7 +161,7 @@ export const RESUME_CATEGORIES: ResumeCategory[] = [
         link: `${GH}/Portifolio`,
       },
       {
-        index: '07',
+        index: '06',
         title: 'Financeiro Mobile',
         status: 'Estudo',
         tone: 'gray',

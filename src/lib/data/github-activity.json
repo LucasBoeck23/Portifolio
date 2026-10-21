@@ -1,6 +1,20 @@
 [
   {
     "type": "PushEvent",
+    "time": "2026-10-21T17:59:56Z",
+    "repo": "Portifolio",
+    "sha": "d5ee072",
+    "message": "chore: atualiza resume, about e github activity"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-10-21T17:59:27Z",
+    "repo": "Portifolio",
+    "sha": "778b3ab",
+    "message": "perf: prioriza vídeo e imagens visíveis, adia áudio para o clique"
+  },
+  {
+    "type": "PushEvent",
     "time": "2026-10-16T02:21:18Z",
     "repo": "Ayn-Thor-Manager",
     "sha": "a5185ab",
