@@ -1,15 +1,13 @@
 <script lang="ts">
-  import type { ResumeCategory } from '$lib/data/resume-items';
+  import type { ResumeCategory, ResumeTone } from '$lib/data/resume-items';
 
   let { category }: { category: ResumeCategory } = $props();
 
-  function getStatusColor(status: string): string {
-    if (status.startsWith('Completo') || status.startsWith('Ativo')) return '#22c55e';
-    if (status.startsWith('Em Progresso') || status.startsWith('Cursando')) return '#eab308';
-    if (status === 'Principal' || status === 'Experiente') return '#22c55e';
-    if (status === 'Intermediário') return '#eab308';
-    return '#6b7280';
-  }
+  const TONE_COLORS: Record<ResumeTone, string> = {
+    green: '#22c55e',
+    yellow: '#eab308',
+    gray: '#94a3b8',
+  };
 </script>
 
 {#key category.id}
@@ -21,29 +19,42 @@
       <span class="resume-detail-top-sub">{category.subtitle}</span>
     </div>
     <div class="resume-detail-top-progress">{category.rows.length}</div>
-    <div class="resume-detail-top-rank">RANK <b>{category.rank}</b></div>
+    <div class="resume-detail-top-rank">ITENS <b>{category.rows.length}</b></div>
   </div>
 
   <div class="resume-detail-list">
     {#each category.rows as row, i}
-      <div class="resume-detail-row" style:--status={getStatusColor(row.status)} style:--i={i}>
+      <div class="resume-detail-row" style:--status={TONE_COLORS[row.tone]} style:--i={i}>
         <div class="resume-detail-row-index">{row.index}</div>
-        <div class="resume-detail-row-title">{row.title}</div>
-        <div class="resume-detail-status" style:background={getStatusColor(row.status)}>
+        <div class="resume-detail-row-title">
+          {#if row.link}
+            <a class="resume-detail-row-link" href={row.link} target="_blank" rel="noopener noreferrer">
+              {row.title}<span class="resume-detail-row-ext" aria-hidden="true"> ↗</span>
+            </a>
+          {:else}
+            {row.title}
+          {/if}
+          {#if row.detail}
+            <span class="resume-detail-row-desc">{row.detail}</span>
+          {/if}
+        </div>
+        <div class="resume-detail-status" style:background={TONE_COLORS[row.tone]}>
           {row.status}
         </div>
       </div>
     {/each}
   </div>
 
-  <div class="resume-detail-bottom">
-    <div class="resume-detail-bottom-title">DETALHES</div>
-    <div class="resume-detail-bullets">
-      <div class="resume-detail-bullet">- Manter progresso nos itens obrigatórios e trabalhos de apoio.</div>
-      <div class="resume-detail-bullet">- Acompanhar projetos prontos para portfólio ligados a esta categoria.</div>
-      <div class="resume-detail-bullet">- Manter materiais preparados para revisão e avaliação.</div>
+  {#if category.notes?.length}
+    <div class="resume-detail-bottom">
+      <div class="resume-detail-bottom-title">DETALHES</div>
+      <div class="resume-detail-bullets">
+        {#each category.notes as note}
+          <div class="resume-detail-bullet">{note}</div>
+        {/each}
+      </div>
     </div>
-  </div>
+  {/if}
 </div>
 {/key}
 
@@ -146,10 +157,47 @@
   }
 
   .resume-detail-row-title {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
     font-family: 'Anton', sans-serif;
     font-size: 22px;
     line-height: 1.1;
     color: #f2fcff;
+  }
+
+  .resume-detail-row-link {
+    color: inherit;
+    text-decoration: none;
+    align-self: flex-start;
+  }
+
+  .resume-detail-row-link:hover,
+  .resume-detail-row-link:focus-visible {
+    color: #94f4ff;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .resume-detail-row-link:focus-visible {
+    outline: 2px solid #94f4ff;
+    outline-offset: 2px;
+  }
+
+  .resume-detail-row-ext {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.8em;
+    color: #94f4ff;
+  }
+
+  /* Linha de contexto: fonte de leitura, não de título */
+  .resume-detail-row-desc {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px;
+    line-height: 1.3;
+    letter-spacing: 0.2px;
+    color: rgba(237, 250, 255, 0.78);
   }
 
   .resume-detail-status {
@@ -159,6 +207,7 @@
     letter-spacing: 1.1px;
     color: #fff;
     padding: 7px 12px;
+    white-space: nowrap;
     clip-path: polygon(0 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
     border-radius: 2px;
   }

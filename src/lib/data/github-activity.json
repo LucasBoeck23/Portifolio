@@ -1,6 +1,167 @@
 [
   {
     "type": "PushEvent",
+    "time": "2026-10-16T02:21:18Z",
+    "repo": "Ayn-Thor-Manager",
+    "sha": "a5185ab",
+    "message": "ajusta interface no linux"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-10-16T00:10:26Z",
+    "repo": "Ayn-Thor-Manager",
+    "sha": "e7b5df0",
+    "message": "feat: port desktop UI from WPF to Avalonia (cross-platform)"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-10-16T00:10:00Z",
+    "repo": "Ayn-Thor-Manager",
+    "sha": "a069c96",
+    "message": "chore: stop tracking publish-desktop build output"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-10-14T22:37:13Z",
+    "repo": "Portifolio",
+    "sha": "9e23459",
+    "message": "feat: melhora UI mobile/tablet do currículo e diário de bordo"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-10-14T15:39:06Z",
+    "repo": "Portifolio",
+    "sha": "9f0aaff",
+    "message": "Merge pull request #1 from LucasBoeck23/feat/mobile-ui"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-10-14T15:37:58Z",
+    "repo": "Portifolio",
+    "sha": "fc6c73c",
+    "message": "feat: layouts responsivos para mobile/tablet + script de checagem visual"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-10-14T15:34:36Z",
+    "repo": "Portifolio",
+    "sha": "1b7ee35",
+    "message": "feat: layout mobile/tablet para o painel do Sobre mim"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-10-12T22:48:23Z",
+    "repo": "roadmap",
+    "sha": "9505804",
+    "message": "feat: nova home premium + planetário com shaders; remove modo IDE"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-10-11T20:52:18Z",
+    "repo": "roadmap",
+    "sha": "a4eabae",
+    "message": "fix: esconder atalho do planetário na home até desbloquear o easter egg"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-10-10T03:49:08Z",
+    "repo": "Portifolio",
+    "sha": "412e697",
+    "message": "perf: fontes locais (woff2) + logo webp + atividade por fuso do visitante"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-10-10T03:25:38Z",
+    "repo": "roadmap",
+    "sha": "b353b7f",
+    "message": "chore: remove placeholder modules from src"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-10-10T03:13:39Z",
+    "repo": "roadmap",
+    "sha": "13e21b4",
+    "message": "feat: hide planetarium behind a secret unlock (5 clicks on status icon, persisted in localStorage)"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-10-10T02:59:34Z",
+    "repo": "roadmap",
+    "sha": "8a49874",
+    "message": "feat: reactive split view with tests, downloadable topic zips, fix file navigation highlight"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-10-10T02:01:19Z",
+    "repo": "roadmap",
+    "sha": "939bbd4",
+    "message": "feat: planetary HUD (title, legend, vignette), kepler orbit speed, fix duplicate build"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-10-10T01:41:00Z",
+    "repo": "roadmap",
+    "sha": "b36f24c",
+    "message": "feat: animated plasma sun with GLSL shader, corona and bloom"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-10-10T00:36:42Z",
+    "repo": "roadmap",
+    "sha": "9bb1e3a",
+    "message": "fix: focus mode hides solar system and remove buggy moon orbit redraw"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-10-09T23:33:05Z",
+    "repo": "roadmap",
+    "sha": "be848cb",
+    "message": "refactor: split planetary system into core modules (camera, scene, orbit, factory, textures)"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-10-09T23:21:01Z",
+    "repo": "roadmap",
+    "sha": "c0fb7ff",
+    "message": "refactor: slim down planetary system, remove dead code and dedupe helpers"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-10-09T22:22:29Z",
+    "repo": "roadmap",
+    "sha": "501a726",
+    "message": "feat: planetary system with orbital camera and focus mode"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-10-09T22:21:04Z",
+    "repo": "roadmap",
+    "sha": "0e802a5",
+    "message": "chore: remove legacy Blazor app and .NET build artifacts"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-10-07T00:27:25Z",
+    "repo": "roadmap",
+    "sha": "62d4986",
+    "message": "feat: replace RPG scroll with Three.js planetary system view"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-10-06T23:55:30Z",
+    "repo": "roadmap",
+    "sha": "1717877",
+    "message": "ci: switch deploy from Blazor to Svelte+Vite"
+  },
+  {
+    "type": "PushEvent",
+    "time": "2026-10-06T23:48:26Z",
+    "repo": "roadmap",
+    "sha": "2d2e22b",
+    "message": "feat: add Svelte+Vite project replacing Blazor WASM"
+  },
+  {
+    "type": "PushEvent",
     "time": "2026-08-26T00:43:25Z",
     "repo": "Portifolio",
     "sha": "d952af5",
@@ -228,48 +389,6 @@
     "time": "2026-08-04T00:09:07Z",
     "repo": "Soliton",
     "sha": "ad48aa0",
-    "message": "Initial commit"
-  },
-  {
-    "type": "PushEvent",
-    "time": "2026-07-15T21:21:55Z",
-    "repo": "Portifolio",
-    "sha": "853f789",
-    "message": "Initial commit"
-  },
-  {
-    "type": "PushEvent",
-    "time": "2026-07-15T01:24:37Z",
-    "repo": "roadmap",
-    "sha": "e86b3d6",
-    "message": "feat: IDE-style UI with split view, syntax highlighting, multi-track support"
-  },
-  {
-    "type": "PushEvent",
-    "time": "2026-07-14T02:37:11Z",
-    "repo": "roadmap",
-    "sha": "27ca25a",
-    "message": "ci: fix base path for renamed repo"
-  },
-  {
-    "type": "PushEvent",
-    "time": "2026-07-14T02:21:06Z",
-    "repo": "roadmap",
-    "sha": "056606a",
-    "message": "ci: add GitHub Pages deploy workflow"
-  },
-  {
-    "type": "PushEvent",
-    "time": "2026-07-14T02:17:14Z",
-    "repo": "roadmap",
-    "sha": "ce73ce2",
-    "message": "feat: initial project setup - Blazor WASM IDE-style roadmap viewer"
-  },
-  {
-    "type": "PushEvent",
-    "time": "2026-07-13T21:46:40Z",
-    "repo": "roadmap",
-    "sha": "aaade49",
     "message": "Initial commit"
   }
 ]

@@ -34,8 +34,8 @@
         <div class="resume-card-inner">
           <div class="resume-title">{category.title}</div>
           <div class="resume-rank">
-            <span class="resume-rank-label">RANK</span>
-            <span class="resume-rank-number">{category.rank}</span>
+            <span class="resume-rank-label">ITENS</span>
+            <span class="resume-rank-number">{category.rows.length}</span>
           </div>
         </div>
         <div class="resume-subtitle-bar">
