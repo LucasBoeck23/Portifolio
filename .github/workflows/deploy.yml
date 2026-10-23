@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
   schedule:
-    - cron: '0 6 * * 1' # Toda segunda-feira às 6h UTC
+    - cron: '0 */6 * * *' # A cada 6 horas
 
 permissions:
   contents: read
