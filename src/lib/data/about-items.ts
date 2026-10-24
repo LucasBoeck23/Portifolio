@@ -42,7 +42,6 @@ export const ABOUT_ITEMS: AboutItem[] = [
       upper: [
         'Sou daltônico, então acessibilidade pra mim é requisito, não detalhe',
         'Nunca deixo só a cor passar informação: contraste, texto e ícone juntos',
-        'É o tema do Soliton, meu projeto de acessibilidade em desenvolvimento',
       ],
       lower: 'acessível por padrão',
     },

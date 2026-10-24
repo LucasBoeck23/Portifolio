@@ -139,7 +139,7 @@ export const RESUME_CATEGORIES: ResumeCategory[] = [
       {
         index: '03',
         title: 'Soliton',
-        status: 'Em desenvolvimento',
+        status: 'Em planejamento',
         tone: 'yellow',
         detail: 'Projeto de acessibilidade 360°, escrito em C',
         link: `${GH}/Soliton`,
@@ -149,7 +149,7 @@ export const RESUME_CATEGORIES: ResumeCategory[] = [
         title: 'Roadmap de estudos',
         status: 'No ar',
         tone: 'green',
-        detail: 'Roadmap de estudos interativo com interface no estilo de uma IDE',
+        detail: 'Roadmap de estudos interativo',
         link: 'https://lucasboeck23.github.io/roadmap/',
       },
       {
@@ -163,9 +163,9 @@ export const RESUME_CATEGORIES: ResumeCategory[] = [
       {
         index: '06',
         title: 'Financeiro Mobile',
-        status: 'Estudo',
-        tone: 'gray',
-        detail: 'App Flutter de relatório de gastos',
+        status: 'Em desenvolvimento',
+        tone: 'yellow',
+        detail: 'App Flutter de relatório de gastos, projeto de estudos',
         link: `${GH}/financeiro_mobile`,
       },
     ],
